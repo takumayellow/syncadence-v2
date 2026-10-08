@@ -1,0 +1,21 @@
+{
+  "id": "fur-elise",
+  "mutopiaId": 931,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=931",
+  "license": "Public Domain",
+  "maintainer": "Stelios Samelis",
+  "edition": "Breitkopf & Härtel, 1888",
+  "files": {
+    "ly": {
+      "name": "fur_Elise_WoO59.ly",
+      "url": "https://www.mutopiaproject.org/ftp/BeethovenLv/WoO59/fur_Elise_WoO59/fur_Elise_WoO59.ly",
+      "sha256": "828a7bd1b42e441fe1b0eb0389ba46f1502dab28bbe488389e635fb446ba7a67"
+    },
+    "mid": {
+      "name": "fur_Elise_WoO59.mid",
+      "url": "https://www.mutopiaproject.org/ftp/BeethovenLv/WoO59/fur_Elise_WoO59/fur_Elise_WoO59.mid",
+      "sha256": "1c12c21c7bbf4cf163896732672648a69d497636059837abd153c71abe50215a"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

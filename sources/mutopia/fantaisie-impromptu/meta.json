@@ -1,0 +1,21 @@
+{
+  "id": "fantaisie-impromptu",
+  "mutopiaId": 1693,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1693",
+  "license": "Public Domain",
+  "maintainer": "Guy D. Lederfein",
+  "edition": "Herrmann Scholtz (1845-1918)",
+  "files": {
+    "ly": {
+      "name": "chopin_fantaisie-impromptu.ly",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu.ly",
+      "sha256": "3283d648e28120624ceaeec59cf2afc4bc25ef8ac18b1a3108c053c3f562cd33"
+    },
+    "mid": {
+      "name": "chopin_fantaisie-impromptu.mid",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu.mid",
+      "sha256": "b29f6add7473b6e931c2e66349e860bf0e884cf68e19e90420a4870aae689f96"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

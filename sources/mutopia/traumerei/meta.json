@@ -1,0 +1,21 @@
+{
+  "id": "traumerei",
+  "mutopiaId": 504,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=504",
+  "license": "Public Domain",
+  "maintainer": "Ying-Chun Liu",
+  "edition": "Leichte Stucke, 1900",
+  "files": {
+    "ly": {
+      "name": "SchumannOp15No07.ly",
+      "url": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No07/SchumannOp15No07.ly",
+      "sha256": "be0a952c8465a216c8405a2f6154a9b101e983a4b080d64a90e532bd5118532a"
+    },
+    "mid": {
+      "name": "SchumannOp15No07.mid",
+      "url": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No07/SchumannOp15No07.mid",
+      "sha256": "6e0045d5783ff28dedcf05813074fe407ca3846e5e2a7246f2793ac5614e4851"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

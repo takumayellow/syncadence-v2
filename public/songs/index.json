@@ -1,0 +1,269 @@
+{
+ "version": 2,
+ "songs": [
+  {
+   "id": "fur-elise",
+   "title": "エリーゼのために",
+   "titleEn": "Für Elise, WoO 59",
+   "composer": "ベートーヴェン",
+   "composerEn": "Ludwig van Beethoven",
+   "composerYears": "1770–1827",
+   "bpm": 72,
+   "duration": 130.417,
+   "levels": {
+    "easy": 7,
+    "normal": 9,
+    "hard": 15,
+    "expert": 23
+   },
+   "noteCounts": {
+    "easy": 184,
+    "normal": 225,
+    "hard": 452,
+    "expert": 635
+   }
+  },
+  {
+   "id": "gymnopedie-1",
+   "title": "ジムノペディ第1番",
+   "titleEn": "Gymnopédie No. 1",
+   "composer": "サティ",
+   "composerEn": "Erik Satie",
+   "composerYears": "1866–1925",
+   "bpm": 60,
+   "duration": 141.0,
+   "levels": {
+    "easy": 6,
+    "normal": 6,
+    "hard": 7,
+    "expert": 9
+   },
+   "noteCounts": {
+    "easy": 86,
+    "normal": 86,
+    "hard": 131,
+    "expert": 146
+   }
+  },
+  {
+   "id": "traumerei",
+   "title": "トロイメライ（子供の情景 第7曲）",
+   "titleEn": "Träumerei, Op. 15 No. 7",
+   "composer": "シューマン",
+   "composerEn": "Robert Schumann",
+   "composerYears": "1810–1856",
+   "bpm": 60,
+   "duration": 110.683,
+   "levels": {
+    "easy": 4,
+    "normal": 7,
+    "hard": 9,
+    "expert": 11
+   },
+   "noteCounts": {
+    "easy": 75,
+    "normal": 118,
+    "hard": 136,
+    "expert": 180
+   }
+  },
+  {
+   "id": "prelude-op28-4",
+   "title": "前奏曲 ホ短調 Op.28-4",
+   "titleEn": "Prelude in E minor, Op. 28 No. 4",
+   "composer": "ショパン",
+   "composerEn": "Frédéric Chopin",
+   "composerYears": "1810–1849",
+   "bpm": 56,
+   "duration": 108.214,
+   "levels": {
+    "easy": 4,
+    "normal": 4,
+    "hard": 7,
+    "expert": 9
+   },
+   "noteCounts": {
+    "easy": 40,
+    "normal": 57,
+    "hard": 94,
+    "expert": 126
+   }
+  },
+  {
+   "id": "wtk1-prelude1",
+   "title": "平均律クラヴィーア曲集 第1巻 前奏曲 第1番",
+   "titleEn": "Prelude in C major, BWV 846",
+   "composer": "J.S.バッハ",
+   "composerEn": "Johann Sebastian Bach",
+   "composerYears": "1685–1750",
+   "bpm": 60,
+   "duration": 140.0,
+   "levels": {
+    "easy": 6,
+    "normal": 7,
+    "hard": 14,
+    "expert": 14
+   },
+   "noteCounts": {
+    "easy": 137,
+    "normal": 207,
+    "hard": 448,
+    "expert": 480
+   }
+  },
+  {
+   "id": "entertainer",
+   "title": "ジ・エンターテイナー",
+   "titleEn": "The Entertainer",
+   "composer": "ジョプリン",
+   "composerEn": "Scott Joplin",
+   "composerYears": "1868–1917",
+   "bpm": 72,
+   "duration": 252.917,
+   "levels": {
+    "easy": 6,
+    "normal": 9,
+    "hard": 17,
+    "expert": 19
+   },
+   "noteCounts": {
+    "easy": 239,
+    "normal": 401,
+    "hard": 876,
+    "expert": 1043
+   }
+  },
+  {
+   "id": "maple-leaf-rag",
+   "title": "メイプル・リーフ・ラグ",
+   "titleEn": "Maple Leaf Rag",
+   "composer": "ジョプリン",
+   "composerEn": "Scott Joplin",
+   "composerYears": "1868–1917",
+   "bpm": 120,
+   "duration": 144.0,
+   "levels": {
+    "easy": 7,
+    "normal": 11,
+    "hard": 17,
+    "expert": 30
+   },
+   "noteCounts": {
+    "easy": 181,
+    "normal": 326,
+    "hard": 527,
+    "expert": 1041
+   }
+  },
+  {
+   "id": "mountain-king",
+   "title": "山の魔王の宮殿にて（作曲者によるピアノ版）",
+   "titleEn": "In the Hall of the Mountain King, Op. 46 No. 4",
+   "composer": "グリーグ",
+   "composerEn": "Edvard Grieg",
+   "composerYears": "1843–1907",
+   "bpm": 138,
+   "duration": 145.229,
+   "levels": {
+    "easy": 7,
+    "normal": 11,
+    "hard": 19,
+    "expert": 25
+   },
+   "noteCounts": {
+    "easy": 180,
+    "normal": 325,
+    "hard": 566,
+    "expert": 835
+   }
+  },
+  {
+   "id": "arabesque-1",
+   "title": "アラベスク第1番",
+   "titleEn": "Première Arabesque",
+   "composer": "ドビュッシー",
+   "composerEn": "Claude Debussy",
+   "composerYears": "1862–1918",
+   "bpm": 144,
+   "duration": 176.25,
+   "levels": {
+    "easy": 6,
+    "normal": 9,
+    "hard": 14,
+    "expert": 27
+   },
+   "noteCounts": {
+    "easy": 202,
+    "normal": 297,
+    "hard": 457,
+    "expert": 850
+   }
+  },
+  {
+   "id": "clair-de-lune",
+   "title": "月の光（ベルガマスク組曲）",
+   "titleEn": "Clair de Lune (Suite bergamasque)",
+   "composer": "ドビュッシー",
+   "composerEn": "Claude Debussy",
+   "composerYears": "1862–1918",
+   "bpm": 60,
+   "duration": 322.5,
+   "levels": {
+    "easy": 4,
+    "normal": 9,
+    "hard": 9,
+    "expert": 11
+   },
+   "noteCounts": {
+    "easy": 183,
+    "normal": 280,
+    "hard": 372,
+    "expert": 471
+   }
+  },
+  {
+   "id": "revolutionary",
+   "title": "練習曲 Op.10-12「革命」",
+   "titleEn": "Étude Op. 10 No. 12 \"Revolutionary\"",
+   "composer": "ショパン",
+   "composerEn": "Frédéric Chopin",
+   "composerYears": "1810–1849",
+   "bpm": 160,
+   "duration": 125.25,
+   "levels": {
+    "easy": 7,
+    "normal": 11,
+    "hard": 12,
+    "expert": 22
+   },
+   "noteCounts": {
+    "easy": 133,
+    "normal": 195,
+    "hard": 278,
+    "expert": 558
+   }
+  },
+  {
+   "id": "fantaisie-impromptu",
+   "title": "幻想即興曲 Op.66",
+   "titleEn": "Fantaisie-Impromptu, Op. 66",
+   "composer": "ショパン",
+   "composerEn": "Frédéric Chopin",
+   "composerYears": "1810–1849",
+   "bpm": 168,
+   "duration": 253.523,
+   "levels": {
+    "easy": 7,
+    "normal": 11,
+    "hard": 15,
+    "expert": 30
+   },
+   "noteCounts": {
+    "easy": 292,
+    "normal": 493,
+    "hard": 680,
+    "expert": 1370
+   }
+  }
+ ]
+}

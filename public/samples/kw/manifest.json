@@ -1,0 +1,470 @@
+{
+ "name": "Upright Piano KW (2022-02-21)",
+ "license": "CC0-1.0",
+ "source": "https://github.com/freepats/upright-piano-KW",
+ "velocitySplit": 81,
+ "regions": [
+  {
+   "file": "A0vH.mp3",
+   "key": 21,
+   "lo": 21,
+   "hi": 22,
+   "layer": "H"
+  },
+  {
+   "file": "B0vH.mp3",
+   "key": 23,
+   "lo": 23,
+   "hi": 23,
+   "layer": "H"
+  },
+  {
+   "file": "C1vH.mp3",
+   "key": 24,
+   "lo": 24,
+   "hi": 25,
+   "layer": "H"
+  },
+  {
+   "file": "Ds1vH.mp3",
+   "key": 27,
+   "lo": 26,
+   "hi": 28,
+   "layer": "H"
+  },
+  {
+   "file": "Fs1vH.mp3",
+   "key": 30,
+   "lo": 29,
+   "hi": 31,
+   "layer": "H"
+  },
+  {
+   "file": "A1vH.mp3",
+   "key": 33,
+   "lo": 32,
+   "hi": 33,
+   "layer": "H"
+  },
+  {
+   "file": "B1vH.mp3",
+   "key": 35,
+   "lo": 34,
+   "hi": 35,
+   "layer": "H"
+  },
+  {
+   "file": "C2vH.mp3",
+   "key": 36,
+   "lo": 36,
+   "hi": 37,
+   "layer": "H"
+  },
+  {
+   "file": "Ds2vH.mp3",
+   "key": 39,
+   "lo": 38,
+   "hi": 40,
+   "layer": "H"
+  },
+  {
+   "file": "Fs2vH.mp3",
+   "key": 42,
+   "lo": 41,
+   "hi": 45,
+   "layer": "H"
+  },
+  {
+   "file": "B2vH.mp3",
+   "key": 47,
+   "lo": 46,
+   "hi": 47,
+   "layer": "H"
+  },
+  {
+   "file": "C3vH.mp3",
+   "key": 48,
+   "lo": 48,
+   "hi": 49,
+   "layer": "H"
+  },
+  {
+   "file": "Ds3vH.mp3",
+   "key": 51,
+   "lo": 50,
+   "hi": 52,
+   "layer": "H"
+  },
+  {
+   "file": "Fs3vH.mp3",
+   "key": 54,
+   "lo": 53,
+   "hi": 55,
+   "layer": "H"
+  },
+  {
+   "file": "A3vH.mp3",
+   "key": 57,
+   "lo": 56,
+   "hi": 57,
+   "layer": "H"
+  },
+  {
+   "file": "B3vH.mp3",
+   "key": 59,
+   "lo": 58,
+   "hi": 61,
+   "layer": "H"
+  },
+  {
+   "file": "Ds4vH.mp3",
+   "key": 63,
+   "lo": 62,
+   "hi": 64,
+   "layer": "H"
+  },
+  {
+   "file": "Fs4vH.mp3",
+   "key": 66,
+   "lo": 65,
+   "hi": 67,
+   "layer": "H"
+  },
+  {
+   "file": "A4vH.mp3",
+   "key": 69,
+   "lo": 68,
+   "hi": 69,
+   "layer": "H"
+  },
+  {
+   "file": "B4vH.mp3",
+   "key": 71,
+   "lo": 70,
+   "hi": 71,
+   "layer": "H"
+  },
+  {
+   "file": "C5vH.mp3",
+   "key": 72,
+   "lo": 72,
+   "hi": 73,
+   "layer": "H"
+  },
+  {
+   "file": "Ds5vH.mp3",
+   "key": 75,
+   "lo": 74,
+   "hi": 76,
+   "layer": "H"
+  },
+  {
+   "file": "Fs5vH.mp3",
+   "key": 78,
+   "lo": 77,
+   "hi": 79,
+   "layer": "H"
+  },
+  {
+   "file": "A5vH.mp3",
+   "key": 81,
+   "lo": 80,
+   "hi": 81,
+   "layer": "H"
+  },
+  {
+   "file": "B5vH.mp3",
+   "key": 83,
+   "lo": 82,
+   "hi": 83,
+   "layer": "H"
+  },
+  {
+   "file": "C6vH.mp3",
+   "key": 84,
+   "lo": 84,
+   "hi": 85,
+   "layer": "H"
+  },
+  {
+   "file": "Ds6vH.mp3",
+   "key": 87,
+   "lo": 86,
+   "hi": 88,
+   "layer": "H"
+  },
+  {
+   "file": "Fs6vH.mp3",
+   "key": 90,
+   "lo": 89,
+   "hi": 91,
+   "layer": "H"
+  },
+  {
+   "file": "A6vH.mp3",
+   "key": 93,
+   "lo": 92,
+   "hi": 93,
+   "layer": "H"
+  },
+  {
+   "file": "B6vH.mp3",
+   "key": 95,
+   "lo": 94,
+   "hi": 95,
+   "layer": "H"
+  },
+  {
+   "file": "C7vH.mp3",
+   "key": 96,
+   "lo": 96,
+   "hi": 97,
+   "layer": "H"
+  },
+  {
+   "file": "Ds7vH.mp3",
+   "key": 99,
+   "lo": 98,
+   "hi": 100,
+   "layer": "H"
+  },
+  {
+   "file": "Fs7vH.mp3",
+   "key": 102,
+   "lo": 101,
+   "hi": 103,
+   "layer": "H"
+  },
+  {
+   "file": "A7vH.mp3",
+   "key": 105,
+   "lo": 104,
+   "hi": 105,
+   "layer": "H"
+  },
+  {
+   "file": "B7vH.mp3",
+   "key": 107,
+   "lo": 106,
+   "hi": 107,
+   "layer": "H"
+  },
+  {
+   "file": "C8vH.mp3",
+   "key": 108,
+   "lo": 108,
+   "hi": 108,
+   "layer": "H"
+  },
+  {
+   "file": "A0vL.mp3",
+   "key": 21,
+   "lo": 21,
+   "hi": 22,
+   "layer": "L"
+  },
+  {
+   "file": "C1vL.mp3",
+   "key": 24,
+   "lo": 23,
+   "hi": 25,
+   "layer": "L"
+  },
+  {
+   "file": "Ds1vL.mp3",
+   "key": 27,
+   "lo": 26,
+   "hi": 28,
+   "layer": "L"
+  },
+  {
+   "file": "Fs1vL.mp3",
+   "key": 30,
+   "lo": 29,
+   "hi": 31,
+   "layer": "L"
+  },
+  {
+   "file": "A1vL.mp3",
+   "key": 33,
+   "lo": 32,
+   "hi": 34,
+   "layer": "L"
+  },
+  {
+   "file": "C2vL.mp3",
+   "key": 36,
+   "lo": 35,
+   "hi": 37,
+   "layer": "L"
+  },
+  {
+   "file": "Ds2vL.mp3",
+   "key": 39,
+   "lo": 38,
+   "hi": 40,
+   "layer": "L"
+  },
+  {
+   "file": "Fs2vL.mp3",
+   "key": 42,
+   "lo": 41,
+   "hi": 43,
+   "layer": "L"
+  },
+  {
+   "file": "A2vL.mp3",
+   "key": 45,
+   "lo": 44,
+   "hi": 46,
+   "layer": "L"
+  },
+  {
+   "file": "C3vL.mp3",
+   "key": 48,
+   "lo": 47,
+   "hi": 49,
+   "layer": "L"
+  },
+  {
+   "file": "Ds3vL.mp3",
+   "key": 51,
+   "lo": 50,
+   "hi": 52,
+   "layer": "L"
+  },
+  {
+   "file": "Fs3vL.mp3",
+   "key": 54,
+   "lo": 53,
+   "hi": 55,
+   "layer": "L"
+  },
+  {
+   "file": "A3vL.mp3",
+   "key": 57,
+   "lo": 56,
+   "hi": 58,
+   "layer": "L"
+  },
+  {
+   "file": "C4vL.mp3",
+   "key": 60,
+   "lo": 59,
+   "hi": 61,
+   "layer": "L"
+  },
+  {
+   "file": "Ds4vL.mp3",
+   "key": 63,
+   "lo": 62,
+   "hi": 64,
+   "layer": "L"
+  },
+  {
+   "file": "Fs4vL.mp3",
+   "key": 66,
+   "lo": 65,
+   "hi": 67,
+   "layer": "L"
+  },
+  {
+   "file": "A4vL.mp3",
+   "key": 69,
+   "lo": 68,
+   "hi": 70,
+   "layer": "L"
+  },
+  {
+   "file": "C5vL.mp3",
+   "key": 72,
+   "lo": 71,
+   "hi": 73,
+   "layer": "L"
+  },
+  {
+   "file": "Ds5vL.mp3",
+   "key": 75,
+   "lo": 74,
+   "hi": 76,
+   "layer": "L"
+  },
+  {
+   "file": "Fs5vL.mp3",
+   "key": 78,
+   "lo": 77,
+   "hi": 79,
+   "layer": "L"
+  },
+  {
+   "file": "A5vL.mp3",
+   "key": 81,
+   "lo": 80,
+   "hi": 82,
+   "layer": "L"
+  },
+  {
+   "file": "C6vL.mp3",
+   "key": 84,
+   "lo": 83,
+   "hi": 85,
+   "layer": "L"
+  },
+  {
+   "file": "Ds6vL.mp3",
+   "key": 87,
+   "lo": 86,
+   "hi": 88,
+   "layer": "L"
+  },
+  {
+   "file": "Fs6vL.mp3",
+   "key": 90,
+   "lo": 89,
+   "hi": 91,
+   "layer": "L"
+  },
+  {
+   "file": "A6vL.mp3",
+   "key": 93,
+   "lo": 92,
+   "hi": 94,
+   "layer": "L"
+  },
+  {
+   "file": "C7vL.mp3",
+   "key": 96,
+   "lo": 95,
+   "hi": 97,
+   "layer": "L"
+  },
+  {
+   "file": "Ds7vL.mp3",
+   "key": 99,
+   "lo": 98,
+   "hi": 100,
+   "layer": "L"
+  },
+  {
+   "file": "Fs7vL.mp3",
+   "key": 102,
+   "lo": 101,
+   "hi": 103,
+   "layer": "L"
+  },
+  {
+   "file": "A7vL.mp3",
+   "key": 105,
+   "lo": 104,
+   "hi": 106,
+   "layer": "L"
+  },
+  {
+   "file": "C8vL.mp3",
+   "key": 108,
+   "lo": 107,
+   "hi": 108,
+   "layer": "L"
+  }
+ ]
+}

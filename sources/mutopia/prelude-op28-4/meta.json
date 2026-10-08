@@ -1,0 +1,21 @@
+{
+  "id": "prelude-op28-4",
+  "mutopiaId": 468,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=468",
+  "license": "Public Domain",
+  "maintainer": "Magnus Lewis-Smith",
+  "edition": "Peters, 1879",
+  "files": {
+    "ly": {
+      "name": "Chop-28-4.ly",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-4/Chop-28-4.ly",
+      "sha256": "d4fca574bc3c3ad810ee643d42b7299e1c97b3b8b3fa379c3d7f77edb02f6192"
+    },
+    "mid": {
+      "name": "Chop-28-4.mid",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-4/Chop-28-4.mid",
+      "sha256": "c1d7e05aa4e6e2baeec2e9108402a969c16d5df302b82fd66d110634697f2e3b"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

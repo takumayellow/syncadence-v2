@@ -1,0 +1,21 @@
+{
+  "id": "maple-leaf-rag",
+  "mutopiaId": 23,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=23",
+  "license": "Public Domain",
+  "maintainer": "Chris Sawer",
+  "edition": "Reproduction of original edition (1899)",
+  "files": {
+    "ly": {
+      "name": "maple.ly",
+      "url": "https://www.mutopiaproject.org/ftp/JoplinS/maple/maple.ly",
+      "sha256": "043e9d9207b771658a9afa51e2aa2537c448ecfd602e78ae50110cf3b12209fd"
+    },
+    "mid": {
+      "name": "maple.mid",
+      "url": "https://www.mutopiaproject.org/ftp/JoplinS/maple/maple.mid",
+      "sha256": "3dd712a85fabd267f5a2cee5cb23af4683408c2f29b8814721844498f1ee4f66"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

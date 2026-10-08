@@ -1,0 +1,21 @@
+{
+  "id": "revolutionary",
+  "mutopiaId": 743,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=743",
+  "license": "Public Domain",
+  "maintainer": "Roland Goretzki",
+  "edition": "Peters, Herrmann Scholtz, 1900b",
+  "files": {
+    "ly": {
+      "name": "op-10-12-wfi.ly",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O10/op-10-12-wfi/op-10-12-wfi.ly",
+      "sha256": "3f68c0b7fcec5af44f4d41b55a1ec02d8c51a01aeece9cd4bae348a96556d0f1"
+    },
+    "mid": {
+      "name": "op-10-12-wfi.mid",
+      "url": "https://www.mutopiaproject.org/ftp/ChopinFF/O10/op-10-12-wfi/op-10-12-wfi.mid",
+      "sha256": "1902287905aa68175f9d13207e6cfc397894d4210617ec1a5c1ae38334c3c7d6"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

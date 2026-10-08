@@ -1,0 +1,21 @@
+{
+  "id": "arabesque-1",
+  "mutopiaId": 1777,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777",
+  "license": "Public Domain",
+  "maintainer": "Keith OHara",
+  "edition": "Durand et Fils (1904)",
+  "files": {
+    "ly": {
+      "name": "debussy_Arabesque_1.ly",
+      "url": "https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1.ly",
+      "sha256": "b3ddf344b94e48f90e9a4337f597463c9740249590538c7c3ab64803a9f09e69"
+    },
+    "mid": {
+      "name": "debussy_Arabesque_1.mid",
+      "url": "https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1.mid",
+      "sha256": "6732dc10799ec0af47d19d9095562d0671864a750129e0279901def169a34757"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

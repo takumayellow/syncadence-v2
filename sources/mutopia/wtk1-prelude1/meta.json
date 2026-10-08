@@ -1,0 +1,21 @@
+{
+  "id": "wtk1-prelude1",
+  "mutopiaId": 5,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=5",
+  "license": "Public Domain",
+  "maintainer": "Tobias Erbsland",
+  "edition": "Unknown",
+  "files": {
+    "ly": {
+      "name": "wtk1-prelude1.ly",
+      "url": "https://www.mutopiaproject.org/ftp/BachJS/BWV846/wtk1-prelude1/wtk1-prelude1.ly",
+      "sha256": "afa237b10637ca7839b4c9e98b64ba89c781e2cfc1b980679b2632a31951aacd"
+    },
+    "mid": {
+      "name": "wtk1-prelude1.mid",
+      "url": "https://www.mutopiaproject.org/ftp/BachJS/BWV846/wtk1-prelude1/wtk1-prelude1.mid",
+      "sha256": "874e07d0479542971bfceaf420d6117da8d602d89d26eea4610e7dd1ef58bf26"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "mountain-king",
+  "mutopiaId": 1888,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1888",
+  "license": "Public Domain",
+  "maintainer": "Coyau",
+  "edition": "The University Society, 1918",
+  "files": {
+    "ly": {
+      "name": "Dans_l_antre_du_roi_de_la_montagne.ly",
+      "url": "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne.ly",
+      "sha256": "5ce52c65f3a019062baa72d8c85313274d2542dbf68a759d8712df4bea827b95"
+    },
+    "mid": {
+      "name": "Dans_l_antre_du_roi_de_la_montagne.mid",
+      "url": "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne.mid",
+      "sha256": "0c256a809b5af1faef81b6aad6106088a71d76b12435d5f0775d4ceee60c917e"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}

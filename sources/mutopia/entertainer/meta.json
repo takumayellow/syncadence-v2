@@ -1,0 +1,21 @@
+{
+  "id": "entertainer",
+  "mutopiaId": 263,
+  "pieceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=263",
+  "license": "Public Domain",
+  "maintainer": "Chris Sawer",
+  "edition": "Reproduction of original edition (1902)",
+  "files": {
+    "ly": {
+      "name": "entertainer.ly",
+      "url": "https://www.mutopiaproject.org/ftp/JoplinS/entertainer/entertainer.ly",
+      "sha256": "3a07fcf4f47b6000ced3e6579ef74bebb3c15af82d542a3aa42271f797544f7d"
+    },
+    "mid": {
+      "name": "entertainer.mid",
+      "url": "https://www.mutopiaproject.org/ftp/JoplinS/entertainer/entertainer.mid",
+      "sha256": "33e4e81ee64ffb2edf90d1c6a1ddee7276507296bfb915c2bb775231a467f066"
+    }
+  },
+  "verifiedOn": "2026-10-08"
+}
