@@ -16,9 +16,9 @@ describe("eventTimeMs", () => {
   });
 });
 
-/** performance.now() と同じ速さで進む偽の AudioContext。 */
+/** performance.now() と同じ速さで進み、suspend している間は止まる偽の AudioContext。 */
 function fakeContext() {
-  const state = { now: 0, suspended: false };
+  const state = { now: 0, suspended: false, suspendedAt: 0, stoppedMs: 0 };
   const gain = {
     gain: { value: 1, cancelScheduledValues: vi.fn(), setTargetAtTime: vi.fn() },
     connect: vi.fn(),
@@ -26,14 +26,16 @@ function fakeContext() {
   };
   const ctx = {
     get currentTime() {
-      return state.now / 1000;
+      return ((state.suspended ? state.suspendedAt : state.now) - state.stoppedMs) / 1000;
     },
     destination: {},
     createGain: () => gain,
     resume: vi.fn(async () => {
+      if (state.suspended) state.stoppedMs += state.now - state.suspendedAt;
       state.suspended = false;
     }),
     suspend: vi.fn(async () => {
+      if (!state.suspended) state.suspendedAt = state.now;
       state.suspended = true;
     }),
   };
@@ -160,6 +162,18 @@ describe("PlayEngine", () => {
     expect(engine.stats().counts.miss).toBe(0);
     await engine.resume();
     expect(engine.state).toBe("playing");
+  });
+
+  it("一時停止中はノーツが止まり、再開すると止めた位置から進む", async () => {
+    const { engine, state, at, runTo } = setup(notes);
+    await engine.start();
+    runTo(at(0.5));
+    const paused = engine.frame(state.now).songTime;
+    engine.pause();
+    state.now += 3000;
+    expect(engine.frame(state.now).songTime).toBe(paused);
+    await engine.resume();
+    expect(engine.frame(state.now).songTime).toBeCloseTo(paused, 5);
   });
 
   it("キー音では叩いた音だけを鳴らす", async () => {

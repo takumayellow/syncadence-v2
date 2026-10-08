@@ -35,6 +35,8 @@ export class PlayEngine {
   private readonly bus: GainNode;
   private readonly scheduler: EventScheduler;
   private clock: SongClock | null = null;
+  /** 一時停止した performance.now()。止まっている間は描画をこの時刻で固定する */
+  private pausedAtMs: number | null = null;
   private stateValue: EngineState = "ready";
   private pressedLanes: readonly boolean[];
   private flashes: readonly Flash[] = [];
@@ -90,6 +92,7 @@ export class PlayEngine {
   pause(): void {
     if (this.stateValue !== "playing" || !this.clock) return;
     this.stateValue = "paused";
+    this.pausedAtMs = performance.now();
     void this.opts.ctx.suspend();
   }
 
@@ -97,6 +100,7 @@ export class PlayEngine {
     if (this.stateValue !== "paused") return;
     await this.opts.ctx.resume();
     this.clock?.reset();
+    this.pausedAtMs = null;
     this.stateValue = "playing";
     const now = performance.now();
     this.pressedLanes.forEach((down, lane) => {
@@ -187,7 +191,8 @@ export class PlayEngine {
     return false;
   }
 
-  frame(nowMs: number): Frame {
+  frame(drawMs: number): Frame {
+    const nowMs = this.pausedAtMs ?? drawMs;
     const { settings, song } = this.opts;
     const clock = this.clock;
     const rate = settings.rate;
