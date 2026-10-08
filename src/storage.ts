@@ -1,4 +1,4 @@
-import type { Difficulty } from "./song/types";
+import { DIFFICULTIES, type Difficulty } from "./song/types";
 
 export interface Settings {
   /** ノーツが判定線まで流れてくる時間（秒）。小さいほど速い */
@@ -26,6 +26,7 @@ export const DEFAULT_SETTINGS: Settings = {
 
 const SETTINGS_KEY = "syncadence.v2.settings";
 const BEST_KEY = "syncadence.v2.best";
+const LAST_KEY = "syncadence.v2.last";
 
 function clamp(value: unknown, lo: number, hi: number, fallback: number): number {
   return typeof value === "number" && Number.isFinite(value) ? Math.min(hi, Math.max(lo, value)) : fallback;
@@ -92,4 +93,27 @@ export function recordBest(best: BestScores, key: string, score: number): BestSc
   const next = { ...best, [key]: score };
   write(BEST_KEY, next);
   return next;
+}
+
+/** 選曲画面で最後に選んでいた曲と難易度。 */
+export interface LastSelection {
+  readonly songId: string | null;
+  readonly difficulty: Difficulty;
+}
+
+export const DEFAULT_SELECTION: LastSelection = { songId: null, difficulty: "normal" };
+
+export function sanitizeSelection(raw: unknown): LastSelection {
+  const obj = typeof raw === "object" && raw !== null ? (raw as Record<string, unknown>) : {};
+  const songId = typeof obj.songId === "string" && /^[a-z0-9-]{1,64}$/.test(obj.songId) ? obj.songId : null;
+  const difficulty = DIFFICULTIES.find((d) => d === obj.difficulty) ?? DEFAULT_SELECTION.difficulty;
+  return { songId, difficulty };
+}
+
+export function loadSelection(): LastSelection {
+  return sanitizeSelection(read(LAST_KEY));
+}
+
+export function saveSelection(selection: LastSelection): void {
+  write(LAST_KEY, selection);
 }

@@ -8,12 +8,4 @@ export function signedMs(ms: number): string {
   return `${rounded > 0 ? "+" : ""}${rounded} ms`;
 }
 
-export function rankOf(score: number): string {
-  if (score >= 990_000) return "SSS";
-  if (score >= 970_000) return "SS";
-  if (score >= 940_000) return "S";
-  if (score >= 880_000) return "A";
-  if (score >= 800_000) return "B";
-  if (score >= 700_000) return "C";
-  return "D";
-}
+export { rankOf } from "../game/rank";
