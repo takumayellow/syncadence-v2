@@ -1,0 +1,36 @@
+# learnkit の設定（https://github.com/takumayellow/code-reading-kit）。パスはこのディレクトリからの相対。
+
+subject = "Syncadence"
+title = "Syncadence のコードを読む"
+lead = """
+ピアノの名曲の楽譜から譜面を作り、ブラウザで叩くリズムゲーム。
+**楽譜のファイルが譜面になるまで**と、**画面のノーツを 1 つ叩いて判定が出るまで**の 2 本の流れを、
+1 行ずつたどって読むための資料。
+"""
+
+[source]
+repo = "takumayellow/syncadence-v2"
+ref = "main"
+commit = "eb9c698"
+origin = "git"
+path = "../.."
+
+[site]
+mermaid = "https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"
+
+[notes]
+"01-overview" = "何をするプログラムで、どのファイルがどこを担うか"
+"02-from-score" = "楽譜のファイルが、ゲームが読む譜面になるまで（Python）"
+"03-one-note" = "ノーツ 1 つが流れてきて、叩いて、判定が出るまで（TypeScript）"
+"04-timing" = "音と画面と入力の時刻をそろえる仕組み"
+"05-syntax" = "TypeScript・React・Python の書き方の索引"
+"06-knobs" = "難易度・判定の幅・見た目を決めている数値"
+
+[layers]
+"src/ui" = "画面 (src/ui)"
+"src/game" = "進行と判定 (src/game)"
+"src/audio" = "音と時計 (src/audio)"
+"src/render" = "描画 (src/render)"
+"src/song" = "曲データの読み込み (src/song)"
+"src" = "入口と保存 (src)"
+"tools" = "譜面を作る (tools・Python)"
