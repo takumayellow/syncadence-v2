@@ -2,7 +2,18 @@ import { useCallback, useEffect, useState } from "react";
 import type { SessionStats } from "../game/session";
 import { loadIndex } from "../song/load";
 import type { Difficulty, Song, SongSummary } from "../song/types";
-import { bestKey, loadBest, loadSettings, recordBest, saveSettings, type BestScores, type Settings } from "../storage";
+import {
+  bestKey,
+  loadBest,
+  loadSelection,
+  loadSettings,
+  recordBest,
+  saveSelection,
+  saveSettings,
+  type BestScores,
+  type LastSelection,
+  type Settings,
+} from "../storage";
 import { Calibrate } from "./Calibrate";
 import { Play } from "./Play";
 import { Result } from "./Result";
@@ -19,7 +30,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [settings, setSettings] = useState<Settings>(loadSettings);
   const [best, setBest] = useState<BestScores>(loadBest);
-  const [difficulty, setDifficulty] = useState<Difficulty>("normal");
+  const [selection, setSelection] = useState<LastSelection>(loadSelection);
   const [screen, setScreen] = useState<Screen>({ kind: "select" });
 
   useEffect(() => {
@@ -28,21 +39,32 @@ export function App() {
       .catch((e: unknown) => setError(e instanceof Error ? e.message : "曲一覧を読み込めませんでした"));
   }, []);
 
+  // 前回の曲が一覧に無ければ（初回・曲の入れ替え）先頭の曲を選ぶ
+  const selectedId = songs?.some((s) => s.id === selection.songId) ? selection.songId : (songs?.[0]?.id ?? null);
+
+  useEffect(() => saveSelection(selection), [selection]);
+
+  const updateSelection = useCallback((patch: Partial<LastSelection>) => {
+    setSelection((prev) => ({ ...prev, ...patch }));
+  }, []);
+  const selectSong = useCallback((songId: string) => updateSelection({ songId }), [updateSelection]);
+  const selectDifficulty = useCallback((difficulty: Difficulty) => updateSelection({ difficulty }), [updateSelection]);
+
   const updateSettings = useCallback((next: Settings) => {
     setSettings(next);
     saveSettings(next);
   }, []);
 
   const play = useCallback((songId: string, diff: Difficulty) => {
-    setDifficulty(diff);
+    updateSelection({ songId, difficulty: diff });
     setScreen((prev) => ({ kind: "play", songId, difficulty: diff, attempt: prev.kind === "play" ? prev.attempt + 1 : 0 }));
-  }, []);
+  }, [updateSelection]);
 
   const finish = useCallback(
     (song: Song, diff: Difficulty, stats: SessionStats) => {
       const key = bestKey(song.id, diff);
       const previous = best[key] ?? null;
-      if (!settings.autoplay) setBest((b) => recordBest(b, key, stats.score));
+      if (!settings.autoplay) setBest(recordBest(best, key, stats.score));
       setScreen({ kind: "result", song, difficulty: diff, stats, best: previous, autoplay: settings.autoplay });
     },
     [best, settings.autoplay],
@@ -84,10 +106,12 @@ export function App() {
         <SongSelect
           songs={songs}
           error={error}
-          difficulty={difficulty}
+          selectedId={selectedId}
+          difficulty={selection.difficulty}
           best={best}
           settings={settings}
-          onDifficulty={setDifficulty}
+          onSelect={selectSong}
+          onDifficulty={selectDifficulty}
           onSettings={updateSettings}
           onPlay={play}
           onCalibrate={() => setScreen({ kind: "calibrate" })}

@@ -9,5 +9,6 @@ v2 の設計に入る前に行った調査の記録。各文書の出典は文�
 | [02-chart-generation.md](02-chart-generation.md) | 人手の作譜の慣行、自動作譜の研究、オンセット検出と楽譜に基づく方法を比べ、楽譜から譜面と音を両方作る案を出した |
 | [03-web-audio-timing.md](03-web-audio-timing.md) | ブラウザで音・描画・入力を同じ時間軸に載せる方法（`getOutputTimestamp`, `event.timeStamp`, iOS の制限）と v2 の同期設計案 |
 | [04-assets-and-licenses.md](04-assets-and-licenses.md) | 楽譜データ（Mutopia の Public Domain 12 曲）とピアノ音源（FreePats Upright Piano KW, CC0）の権利の確認 |
+| [05-ui-references.md](05-ui-references.md) | プレイ画面をプロセカ（Sonolus の pjsekai エンジン）の配置の比率に、選曲画面を osu!lazer・Bemuse・Rhythm Plus・Quaver の作りに合わせた。v1 の透視はプロセカのノーツの近づき方とほぼ同じだった |
 
 既存のゲームを実際に遊んで比べる手順は [../play-existing-games.md](../play-existing-games.md) にある。

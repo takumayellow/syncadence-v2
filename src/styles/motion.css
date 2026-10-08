@@ -1,0 +1,12 @@
+/* 動きを減らす設定の端末では、アニメーションを止める。各画面の指定を上書きするので最後に読む */
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  .ready-go,
+  .drawer {
+    animation: none;
+  }
+
+  .song-row {
+    transition: none;
+  }
+}

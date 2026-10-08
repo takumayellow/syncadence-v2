@@ -1,0 +1,178 @@
+/* ---------- プレイ ---------- */
+
+.play {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* ノッチやホームバーにレーンや点数が掛からないよう、描く範囲を安全領域の内側にする */
+.stage {
+  position: absolute;
+  inset: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+}
+
+.highway {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+/* 左上はスコア（キャンバスに描く）なので、曲名と一時停止は右上に置く */
+.play-hud {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 42%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.6rem;
+  pointer-events: none;
+}
+
+.hud-button {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(10, 16, 36, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.play-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 0;
+  text-align: right;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.play-title strong {
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.play-title > span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.diff-text {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.diff-text.diff-easy {
+  color: var(--easy);
+}
+.diff-text.diff-normal {
+  color: var(--normal);
+}
+.diff-text.diff-hard {
+  color: var(--hard);
+}
+.diff-text.diff-expert {
+  color: var(--expert);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: radial-gradient(ellipse at center, rgba(7, 12, 28, 0.55), rgba(5, 8, 20, 0.85));
+  text-align: center;
+  padding: 0 16px;
+}
+
+.overlay.ready {
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(7, 12, 28, 0.35), rgba(5, 8, 20, 0.7));
+}
+
+.overlay.ready a {
+  pointer-events: auto;
+}
+
+.cue {
+  margin: 0;
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  background: linear-gradient(180deg, #ffffff, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(255, 225, 117, 0.45));
+}
+
+.cue-sub {
+  color: var(--muted);
+}
+
+.ready-title {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+.ready-sub {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.ready-go {
+  margin-top: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+.ready-credit {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* 横持ちのスマホでは READY の説明を詰める */
+@media (max-height: 460px) {
+  .cue {
+    font-size: 2.4rem;
+  }
+  .ready-go {
+    margin-top: 0.6rem;
+  }
+  .ready-credit {
+    margin-top: 0.6rem;
+  }
+}

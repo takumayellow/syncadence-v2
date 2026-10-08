@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { bestKey, DEFAULT_SETTINGS, loadBest, loadSettings, recordBest, saveSettings } from "./storage";
+import { bestKey, DEFAULT_SETTINGS, loadBest, loadSelection, loadSettings, recordBest, saveSelection, saveSettings } from "./storage";
 
 function fakeStorage(initial: Record<string, string> = {}) {
   const data = new Map(Object.entries(initial));
@@ -78,5 +78,32 @@ describe("自己ベスト", () => {
 
   it("記録が無ければ空", () => {
     expect(loadBest()).toEqual({});
+  });
+});
+
+describe("最後に選んだ曲", () => {
+  it("保存したものを読み戻せる", () => {
+    saveSelection({ songId: "fur-elise", difficulty: "hard" });
+    expect(loadSelection()).toEqual({ songId: "fur-elise", difficulty: "hard" });
+  });
+
+  it("記録が無ければ曲は未選択、難易度は NORMAL", () => {
+    expect(loadSelection()).toEqual({ songId: null, difficulty: "normal" });
+  });
+
+  it("知らない難易度や曲 ID に使えない文字は読み捨てる", () => {
+    storage.data.set("syncadence.v2.last", JSON.stringify({ songId: "../x", difficulty: "insane" }));
+    expect(loadSelection()).toEqual({ songId: null, difficulty: "normal" });
+  });
+
+  it("曲 ID は小文字・数字・ハイフンの 64 文字まで", () => {
+    const pick = (songId: string) => {
+      storage.data.set("syncadence.v2.last", JSON.stringify({ songId, difficulty: "easy" }));
+      return loadSelection().songId;
+    };
+    expect(pick("a".repeat(64))).toBe("a".repeat(64));
+    expect(pick("a".repeat(65))).toBeNull();
+    expect(pick("Fur-Elise")).toBeNull();
+    expect(pick("")).toBeNull();
   });
 });

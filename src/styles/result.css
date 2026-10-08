@@ -1,0 +1,89 @@
+/* ---------- 結果 ---------- */
+
+.result {
+  max-width: 640px;
+  text-align: center;
+}
+
+.result h1 {
+  margin: 0.2rem 0 1rem;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+}
+
+.score-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rank {
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 900;
+  font-style: italic;
+  background: linear-gradient(180deg, #ffffff, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgba(255, 225, 117, 0.4));
+}
+
+.score {
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  font-family: ui-monospace, monospace;
+}
+
+.badge {
+  background: var(--gold);
+  color: #2a2000;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.count {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+
+.count dt {
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.count dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.count-perfect dt {
+  color: var(--perfect);
+}
+.count-great dt {
+  color: var(--great);
+}
+.count-good dt {
+  color: var(--good);
+}
+.count-miss dt {
+  color: var(--miss);
+}
+
+.timing {
+  text-align: left;
+}

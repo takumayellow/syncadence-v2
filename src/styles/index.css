@@ -1,0 +1,8 @@
+/* 画面ごとの指定。後のファイルが前のファイルを上書きするので、この順を変えない */
+@import "./base.css";
+@import "./select.css";
+@import "./drawer.css";
+@import "./play.css";
+@import "./result.css";
+@import "./calibrate.css";
+@import "./motion.css";

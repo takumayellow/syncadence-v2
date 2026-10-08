@@ -35,6 +35,11 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
   const resume = useCallback(() => {
     if (engine) void engine.resume().then(() => setPhase({ kind: "playing" }));
   }, [engine]);
+  const pause = useCallback(() => {
+    if (engine?.state !== "playing") return;
+    engine.pause();
+    setPhase({ kind: "paused" });
+  }, [engine]);
 
   useEffect(() => {
     let cancelled = false;
@@ -69,6 +74,7 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
     if (!g) return;
     let raf = 0;
     let finished = false;
+    const touchOnly = window.matchMedia?.("(hover: none) and (pointer: coarse)").matches ?? false;
     const loop = () => {
       raf = requestAnimationFrame(loop);
       const now = performance.now();
@@ -86,7 +92,9 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
         canvas.height = Math.round(height * dpr);
       }
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      drawFrame(g, width, height, engine.frame(now));
+      const frame = engine.frame(now);
+      // タッチだけの端末ではキーの名前は役に立たないので出さない
+      drawFrame(g, width, height, touchOnly ? { ...frame, keyLabels: [] } : frame);
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
@@ -99,12 +107,6 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
     const begin = () => {
       void engine.start().then(() => setPhase({ kind: "playing" }));
     };
-    const pause = () => {
-      if (engine.state !== "playing") return;
-      engine.pause();
-      setPhase({ kind: "paused" });
-    };
-
     const onKeyDown = (e: KeyboardEvent) => {
       const lane = laneOfKey(e.code, engine.lanes);
       if (e.repeat) {
@@ -147,7 +149,6 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
         return;
       }
       const lane = laneAt(e.offsetX, canvas.clientWidth, canvas.clientHeight, engine.lanes);
-      if (lane === null) return;
       pointerLanes.set(e.pointerId, lane);
       engine.press(lane, e.timeStamp);
     };
@@ -177,31 +178,39 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("blur", pause);
     };
-  }, [engine, resume]);
+  }, [engine, pause, resume]);
 
   const chart = song?.charts[difficulty];
 
   return (
     <main className="play">
-      <header className="play-header">
-        <button className="ghost" onClick={onQuit} aria-label="選曲に戻る">
-          ←
-        </button>
-        <div className="play-title">
-          <strong>{song?.title ?? "…"}</strong>
-          <span>
-            {DIFFICULTY_LABELS[difficulty]} {chart ? `Lv${chart.level}` : ""}
-            {settings.rate !== 1 ? ` · テンポ ${Math.round(settings.rate * 100)}%` : ""}
-            {settings.autoplay ? " · オートプレイ" : ""}
-            {settings.keysound && !settings.autoplay ? " · キー音" : ""}
-          </span>
-        </div>
-      </header>
       <div className="stage">
         <canvas ref={canvasRef} className="highway" />
+        <header className="play-hud">
+          {phase.kind === "playing" ? (
+            <button className="hud-button" onClick={pause} aria-label="一時停止">
+              <span aria-hidden="true">❚❚</span>
+            </button>
+          ) : (
+            <button className="hud-button" onClick={onQuit} aria-label="選曲に戻る">
+              <span aria-hidden="true">←</span>
+            </button>
+          )}
+          <div className="play-title">
+            <strong>{song?.title ?? "…"}</strong>
+            <span>
+              <span className={`diff-text diff-${difficulty}`}>
+                {DIFFICULTY_LABELS[difficulty]} {chart ? `Lv${chart.level}` : ""}
+              </span>
+              {settings.rate !== 1 ? ` · テンポ ${Math.round(settings.rate * 100)}%` : ""}
+              {settings.autoplay ? " · オートプレイ" : ""}
+              {settings.keysound && !settings.autoplay ? " · キー音" : ""}
+            </span>
+          </div>
+        </header>
         {phase.kind === "loading" && (
           <div className="overlay">
-            <p>読み込み中… {phase.total > 0 ? `${phase.done}/${phase.total}` : ""}</p>
+            <p className="cue-sub">読み込み中… {phase.total > 0 ? `${phase.done}/${phase.total}` : ""}</p>
           </div>
         )}
         {phase.kind === "error" && (
@@ -212,11 +221,15 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
         )}
         {phase.kind === "ready" && song && (
           <div className="overlay ready">
+            <p className="cue">READY</p>
             <p className="ready-title">{song.title}</p>
             <p className="ready-sub">
               {song.titleEn} — {song.composerEn}
             </p>
-            <p className="ready-go">何かキーを押すとスタート（画面のタップでも）</p>
+            <p className="ready-go">
+              <span className="only-keys">何かキーを押すとスタート</span>
+              <span className="only-touch">画面をタップしてスタート</span>
+            </p>
             <p className="ready-credit">
               楽譜: Mutopia Project{" "}
               <a href={song.credit.pieceUrl} target="_blank" rel="noreferrer">
@@ -227,15 +240,15 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
           </div>
         )}
         {phase.kind === "paused" && (
-          <div className="overlay">
-            <p className="ready-title">一時停止</p>
+          <div className="overlay paused">
+            <p className="cue">PAUSE</p>
             <div className="buttons">
-              <button onClick={resume}>続ける（Esc）</button>
+              <button onClick={resume}>続ける<kbd className="only-keys">Esc</kbd></button>
               <button className="secondary" onClick={onRetry}>
-                やり直す（R）
+                やり直す<kbd className="only-keys">R</kbd>
               </button>
               <button className="secondary" onClick={onQuit}>
-                選曲に戻る（Q）
+                選曲に戻る<kbd className="only-keys">Q</kbd>
               </button>
             </div>
           </div>
