@@ -17,7 +17,7 @@ lines: 22
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx` の L112, L141（`laneOfKey`）、L117（`isStartKey`） | 押されたキーをレーンに直す、開始の合図かを見る |
+| 呼ばれる | `src/ui/Play.tsx` の L112, L141（`laneOfKey`）、L118（`isStartKey`） | 押されたキーをレーンに直す、開始の合図かを見る |
 | 呼ばれる | `src/game/engine.ts` の L52（`keyLabels`） | 描画の材料 `Frame.keyLabels` に入れ、レーンの下に文字を出す |
 | 呼ばれる | `src/ui/Calibrate.tsx` の L77（`isStartKey`） | タイミングを測る画面で、叩いたキーを数えてよいかを見る |
 | 呼ぶ | なし | |

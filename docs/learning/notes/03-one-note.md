@@ -46,7 +46,7 @@ sequenceDiagram
 
 ## 1. 読み込んで、READY で待つ
 
-`Play` が画面に出ると、最初の `useEffect`（[Play.tsx L44-67](../code/src-ui-Play.tsx.html#L44)）が曲の JSON を読み込み、その曲で使うピアノの録音をすべて読み込んでから `PlayEngine` を作ります。
+`Play` が画面に出ると、最初の `useEffect`（[Play.tsx L45-68](../code/src-ui-Play.tsx.html#L45)）が曲の JSON を読み込み、その曲で使うピアノの録音をすべて読み込んでから `PlayEngine` を作ります。
 
 `PlayEngine` のコンストラクタ（[engine.ts L49-69](../code/src-game-engine.ts.html#L49)）がすることは、
 
@@ -59,13 +59,13 @@ sequenceDiagram
 
 ## 2. キーを押して始める
 
-READY の間に押されたキーは、判定ではなく開始の合図になります（[Play.tsx L116-121](../code/src-ui-Play.tsx.html#L116)）。F11 や Tab のようにブラウザの操作に使うキーは合図にしません（[keys.ts](../code/src-game-keys.ts.html) の `isStartKey`）。
+READY の間に押されたキーは、判定ではなく開始の合図になります（[Play.tsx L117-122](../code/src-ui-Play.tsx.html#L117)）。F11 や Tab のようにブラウザの操作に使うキーは合図にしません（[keys.ts](../code/src-game-keys.ts.html) の `isStartKey`）。
 
 `start()`（[engine.ts L80-90](../code/src-game-engine.ts.html#L80)）は、**曲の 0 秒をスピーカーから鳴らす `AudioContext` の時刻**を 1 つ決めて `SongClock` に渡します。最初のノーツが奥から判定線まで流れてくる時間（既定 1.6 秒）と、さらに 0.8 秒の間を空けて始まるよう、0 秒より前から時計を動かし始めます。
 
 ## 3. 毎フレーム進める
 
-`requestAnimationFrame` で画面の書き換えごと（たいてい 1 秒に 60 回）に `loop` が呼ばれます（[Play.tsx L78-98](../code/src-ui-Play.tsx.html#L78)）。
+`requestAnimationFrame` で画面の書き換えごと（たいてい 1 秒に 60 回）に `loop` が呼ばれます（[Play.tsx L79-99](../code/src-ui-Play.tsx.html#L79)）。
 
 `tick(now)`（[engine.ts L178-192](../code/src-game-engine.ts.html#L178)）が 1 フレーム分の仕事をします。
 
@@ -88,7 +88,7 @@ u = (ノーツの時刻 − 曲の位置) ÷ (流れてくる時間 × 再生速
 
 ## 5. 押した瞬間の時刻で判定する
 
-D キーを押すと `keydown` が届き、`engine.press(0, e.timeStamp)` が呼ばれます（[Play.tsx L134-137](../code/src-ui-Play.tsx.html#L134)）。スマホでは、画面のどの横位置を叩いたかからレーンを出します（`laneAt`）。
+D キーを押すと `keydown` が届き、`engine.press(0, e.timeStamp)` が呼ばれます（[Play.tsx L135-138](../code/src-ui-Play.tsx.html#L135)）。スマホでは、画面のどの横位置を叩いたかからレーンを出します（`laneAt`）。
 
 ここで渡すのは、処理が動いた時刻ではなく `e.timeStamp`（**キーが押された瞬間の時刻**）です。描画で忙しくて処理が数 ms 遅れても、押した瞬間で判定できます。
 
