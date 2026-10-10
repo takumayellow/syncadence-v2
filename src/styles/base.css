@@ -125,7 +125,7 @@ kbd {
   color: #ff9aa8;
 }
 
-/* タッチ端末とキーボード端末で案内を出し分ける */
+/* タッチ端末とキーボード端末で案内を出し分ける。条件は TOUCH_QUERY（src/ui/landscape.ts）と同じ */
 .only-touch {
   display: none;
 }
