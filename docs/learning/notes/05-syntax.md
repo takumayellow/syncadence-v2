@@ -7,19 +7,19 @@
 ## TypeScript・JavaScript の書き方
 
 - import と export — [main.tsx L1](../code/src-main.tsx.html#L1)
-- const と let — [main.tsx L5](../code/src-main.tsx.html#L5)（ほかに [session.ts L88](../code/src-game-session.ts.html#L88)、[perspective.ts L1](../code/src-render-perspective.ts.html#L1)）
-- 非 null 表明 `!` — [main.tsx L5](../code/src-main.tsx.html#L5)
-- 例外を投げる throw — [main.tsx L5](../code/src-main.tsx.html#L5)（ほかに [load.ts L5](../code/src-song-load.ts.html#L5)）
-- 分割代入 — [App.tsx L28](../code/src-ui-App.tsx.html#L28)
-- アロー関数 — [App.tsx L36](../code/src-ui-App.tsx.html#L36)
-- instanceof — [App.tsx L36](../code/src-ui-App.tsx.html#L36)
-- 条件演算子 `? :` — [App.tsx L36](../code/src-ui-App.tsx.html#L36)（ほかに [Play.tsx L43](../code/src-ui-Play.tsx.html#L43)、[session.ts L51](../code/src-game-session.ts.html#L51)、[perspective.ts L34](../code/src-render-perspective.ts.html#L34)）
-- オプショナルチェーン `?.` と `??` — [App.tsx L41](../code/src-ui-App.tsx.html#L41)
-- 厳密な比較 `===` と `!==` — [App.tsx L41](../code/src-ui-App.tsx.html#L41)
-- スプレッド構文 `...` — [App.tsx L46](../code/src-ui-App.tsx.html#L46)
-- オブジェクトの書き方とプロパティの省略記法 — [App.tsx L46](../code/src-ui-App.tsx.html#L46)（ほかに [perspective.ts L34](../code/src-render-perspective.ts.html#L34)）
-- switch による場合分け — [App.tsx L75](../code/src-ui-App.tsx.html#L75)
-- テンプレート文字列 — [App.tsx L75](../code/src-ui-App.tsx.html#L75)
+- const と let — [main.tsx L6](../code/src-main.tsx.html#L6)（ほかに [session.ts L88](../code/src-game-session.ts.html#L88)、[perspective.ts L1](../code/src-render-perspective.ts.html#L1)）
+- 非 null 表明 `!` — [main.tsx L6](../code/src-main.tsx.html#L6)
+- 例外を投げる throw — [main.tsx L6](../code/src-main.tsx.html#L6)（ほかに [load.ts L5](../code/src-song-load.ts.html#L5)）
+- 分割代入 — [App.tsx L29](../code/src-ui-App.tsx.html#L29)
+- アロー関数 — [App.tsx L38](../code/src-ui-App.tsx.html#L38)
+- instanceof — [App.tsx L38](../code/src-ui-App.tsx.html#L38)
+- 条件演算子 `? :` — [App.tsx L38](../code/src-ui-App.tsx.html#L38)（ほかに [Play.tsx L44](../code/src-ui-Play.tsx.html#L44)、[session.ts L51](../code/src-game-session.ts.html#L51)、[perspective.ts L34](../code/src-render-perspective.ts.html#L34)）
+- オプショナルチェーン `?.` と `??` — [App.tsx L43](../code/src-ui-App.tsx.html#L43)
+- 厳密な比較 `===` と `!==` — [App.tsx L43](../code/src-ui-App.tsx.html#L43)
+- スプレッド構文 `...` — [App.tsx L48](../code/src-ui-App.tsx.html#L48)
+- オブジェクトの書き方とプロパティの省略記法 — [App.tsx L48](../code/src-ui-App.tsx.html#L48)（ほかに [perspective.ts L34](../code/src-render-perspective.ts.html#L34)）
+- switch による場合分け — [App.tsx L77](../code/src-ui-App.tsx.html#L77)
+- テンプレート文字列 — [App.tsx L77](../code/src-ui-App.tsx.html#L77)
 - ドキュメントコメント `/** */` — [storage.ts L3](../code/src-storage.ts.html#L3)（ほかに [types.ts L10](../code/src-song-types.ts.html#L10)、[engine.ts L17](../code/src-game-engine.ts.html#L17)）
 - typeof — [storage.ts L31](../code/src-storage.ts.html#L31)
 - try / catch — [storage.ts L49](../code/src-storage.ts.html#L49)
@@ -32,9 +32,9 @@
 - slice — [validate.ts L64](../code/src-song-validate.ts.html#L64)
 - 省略できる項目 `?:` — [SongSelect.tsx L27](../code/src-ui-SongSelect.tsx.html#L27)（ほかに [clock.ts L3](../code/src-audio-clock.ts.html#L3)）
 - 符号なし右シフト `>>>` — [select.ts L3](../code/src-ui-select.ts.html#L3)
-- 作ってすぐ呼ぶ async 関数 — [Play.tsx L43](../code/src-ui-Play.tsx.html#L43)
-- `&&` の短絡評価 — [Play.tsx L43](../code/src-ui-Play.tsx.html#L43)（ほかに [sampler.ts L44](../code/src-audio-sampler.ts.html#L44)）
-- Map と Set — [Play.tsx L143](../code/src-ui-Play.tsx.html#L143)
+- 作ってすぐ呼ぶ async 関数 — [Play.tsx L44](../code/src-ui-Play.tsx.html#L44)
+- `&&` の短絡評価 — [Play.tsx L44](../code/src-ui-Play.tsx.html#L44)（ほかに [sampler.ts L44](../code/src-audio-sampler.ts.html#L44)）
+- Map と Set — [Play.tsx L144](../code/src-ui-Play.tsx.html#L144)
 - class と constructor — [engine.ts L30](../code/src-game-engine.ts.html#L30)
 - Array.from — [engine.ts L49](../code/src-game-engine.ts.html#L49)（ほかに [session.ts L51](../code/src-game-session.ts.html#L51)、[Calibrate.tsx L52](../code/src-ui-Calibrate.tsx.html#L52)）
 - map・filter・reduce — [engine.ts L49](../code/src-game-engine.ts.html#L49)
@@ -69,10 +69,11 @@
 
 ## TypeScript の型
 
-- 型注釈 `: 型` — [App.tsx L22](../code/src-ui-App.tsx.html#L22)（ほかに [perspective.ts L13](../code/src-render-perspective.ts.html#L13)）
-- 型の別名 type と合併型 `|` — [App.tsx L22](../code/src-ui-App.tsx.html#L22)
-- ジェネリクス（型引数 `<T>`） — [App.tsx L28](../code/src-ui-App.tsx.html#L28)（ほかに [Play.tsx L24](../code/src-ui-Play.tsx.html#L24)）
-- Partial（全部を省略可能にした型） — [App.tsx L46](../code/src-ui-App.tsx.html#L46)
+- 型注釈 `: 型` — [App.tsx L23](../code/src-ui-App.tsx.html#L23)（ほかに [perspective.ts L13](../code/src-render-perspective.ts.html#L13)）
+- 型の別名 type と合併型 `|` — [App.tsx L23](../code/src-ui-App.tsx.html#L23)
+- ジェネリクス（型引数 `<T>`） — [App.tsx L29](../code/src-ui-App.tsx.html#L29)（ほかに [Play.tsx L25](../code/src-ui-Play.tsx.html#L25)）
+- Partial（全部を省略可能にした型） — [App.tsx L48](../code/src-ui-App.tsx.html#L48)
+- 交差型 `&` — [landscape.ts L24](../code/src-ui-landscape.ts.html#L24)
 - interface と readonly — [storage.ts L3](../code/src-storage.ts.html#L3)
 - 引数と戻り値の型 — [storage.ts L31](../code/src-storage.ts.html#L31)
 - 型アサーション `as` — [storage.ts L35](../code/src-storage.ts.html#L35)（ほかに [validate.ts L23](../code/src-song-validate.ts.html#L23)）
@@ -85,9 +86,9 @@
 - unknown 型 — [load.ts L5](../code/src-song-load.ts.html#L5)
 - 型ガード `x is T` — [validate.ts L4](../code/src-song-validate.ts.html#L4)
 - 実行時の型の確認 `typeof` と `===` / `!==` — [validate.ts L4](../code/src-song-validate.ts.html#L4)
-- 関数の型 — [SongSelect.tsx L8](../code/src-ui-SongSelect.tsx.html#L8)（ほかに [Play.tsx L10](../code/src-ui-Play.tsx.html#L10)、[scheduler.ts L3](../code/src-audio-scheduler.ts.html#L3)）
-- kind で見分ける合併型 — [Play.tsx L19](../code/src-ui-Play.tsx.html#L19)
-- unknown と instanceof — [Play.tsx L43](../code/src-ui-Play.tsx.html#L43)
+- 関数の型 — [SongSelect.tsx L8](../code/src-ui-SongSelect.tsx.html#L8)（ほかに [Play.tsx L11](../code/src-ui-Play.tsx.html#L11)、[scheduler.ts L3](../code/src-audio-scheduler.ts.html#L3)）
+- kind で見分ける合併型 — [Play.tsx L20](../code/src-ui-Play.tsx.html#L20)
+- unknown と instanceof — [Play.tsx L44](../code/src-ui-Play.tsx.html#L44)
 - private とコンストラクタ引数のプロパティ — [engine.ts L49](../code/src-game-engine.ts.html#L49)
 - Pick — [keys.ts L16](../code/src-game-keys.ts.html#L16)
 - その場で書くオブジェクトの型 — [session.ts L163](../code/src-game-session.ts.html#L163)
@@ -96,23 +97,25 @@
 
 ## React（画面の部品）
 
-- JSX — [main.tsx L8](../code/src-main.tsx.html#L8)
-- 関数コンポーネントと props — [App.tsx L28](../code/src-ui-App.tsx.html#L28)
-- useState — [App.tsx L28](../code/src-ui-App.tsx.html#L28)
-- useEffect — [App.tsx L36](../code/src-ui-App.tsx.html#L36)
-- useCallback — [App.tsx L46](../code/src-ui-App.tsx.html#L46)
-- key（部品の見分け札） — [App.tsx L75](../code/src-ui-App.tsx.html#L75)
+- JSX — [main.tsx L9](../code/src-main.tsx.html#L9)
+- 関数コンポーネントと props — [App.tsx L29](../code/src-ui-App.tsx.html#L29)
+- useState — [App.tsx L29](../code/src-ui-App.tsx.html#L29)
+- useEffect — [App.tsx L38](../code/src-ui-App.tsx.html#L38)
+- useCallback — [App.tsx L48](../code/src-ui-App.tsx.html#L48)
+- key（部品の見分け札） — [App.tsx L77](../code/src-ui-App.tsx.html#L77)
 - JSX でのイベントの受け取り — [SongSelect.tsx L71](../code/src-ui-SongSelect.tsx.html#L71)
 - JSX の中での条件付きの表示 `&&` — [SongSelect.tsx L88](../code/src-ui-SongSelect.tsx.html#L88)
-- useRef — [Play.tsx L24](../code/src-ui-Play.tsx.html#L24)
-- JSX の中での条件分岐 — [Play.tsx L185](../code/src-ui-Play.tsx.html#L185)
+- useRef — [Play.tsx L25](../code/src-ui-Play.tsx.html#L25)
+- JSX の中での条件分岐 — [Play.tsx L193](../code/src-ui-Play.tsx.html#L193)
 - 制御された入力欄（value と onChange） — [SettingsPanel.tsx L14](../code/src-ui-SettingsPanel.tsx.html#L14)
 
 ## ブラウザの機能
 
+- CSS のメディアクエリと matchMedia — [landscape.ts L1](../code/src-ui-landscape.ts.html#L1)
+- 全画面 requestFullscreen と Promise の finally — [landscape.ts L35](../code/src-ui-landscape.ts.html#L35)
 - `import.meta.env.BASE_URL` — [load.ts L3](../code/src-song-load.ts.html#L3)
-- requestAnimationFrame — [Play.tsx L68](../code/src-ui-Play.tsx.html#L68)
-- イベントリスナーの登録と解除 — [Play.tsx L161](../code/src-ui-Play.tsx.html#L161)
+- requestAnimationFrame — [Play.tsx L69](../code/src-ui-Play.tsx.html#L69)
+- イベントリスナーの登録と解除 — [Play.tsx L162](../code/src-ui-Play.tsx.html#L162)
 - Float32Array — [regions.ts L52](../code/src-audio-regions.ts.html#L52)
 - setTimeout と clearTimeout — [Calibrate.tsx L41](../code/src-ui-Calibrate.tsx.html#L41)
 

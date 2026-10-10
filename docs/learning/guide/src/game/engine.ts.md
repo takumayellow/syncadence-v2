@@ -1,6 +1,6 @@
 ---
 src: src/game/engine.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 220
 ---
@@ -22,7 +22,7 @@ lines: 220
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx`（L57 で作る。L36・L40・L108・L136・L141・L153・L159・L81・L84・L95・L65） | 進行役の作成、`resume` / `pause` / `start` / `press` / `release` / `tick` / `stats` / `frame` / `dispose` |
+| 呼ばれる | `src/ui/Play.tsx`（L58 で作る。L36・L40・L108・L136・L141・L153・L159・L81・L84・L95・L65） | 進行役の作成、`resume` / `pause` / `start` / `press` / `release` / `tick` / `stats` / `frame` / `dispose` |
 | 呼ばれる | `src/ui/Calibrate.tsx` の L4, L66 | `eventTimeMs` だけを借りて、タップの時刻を確かめる |
 | 呼ぶ | `src/audio/clock.ts` の `SongClock` | `performance.now()` の時刻と曲の位置の換算（`songTimeAt`）、曲の位置と `AudioContext` の時刻の換算（`contextTimeOf`）、毎フレームの合わせ直し（`update`）、一時停止明けの作り直し（`reset`） |
 | 呼ぶ | `src/audio/scheduler.ts` の `EventScheduler` | 曲の音を 0.4 秒（曲の時間）先まで順に取り出す |

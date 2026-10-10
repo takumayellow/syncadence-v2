@@ -1,6 +1,6 @@
 ---
 src: src/song/load.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 19
 ---
@@ -102,7 +102,7 @@ lines: 19
 
 `loadIndex` は曲一覧を取ってきます。`await fetchJson("songs/index.json")` で中身が届くのを待ち、それを `parseIndex`（`src/song/validate.ts` の L39）に渡します。`parseIndex` は形がおかしければエラーを投げ、正しければ `SongSummary` の配列として返します。
 
-戻り値の型 `Promise<SongSummary[]>` は「あとで `SongSummary` の配列が届く約束」です。呼び出し側の `src/ui/App.tsx` の L37 は `loadIndex()` が返す約束に、結果が届いたら一覧を画面に入れる処理をつないでいます。
+戻り値の型 `Promise<SongSummary[]>` は「あとで `SongSummary` の配列が届く約束」です。呼び出し側の `src/ui/App.tsx` の L39 は `loadIndex()` が返す約束に、結果が届いたら一覧を画面に入れる処理をつないでいます。
 
 @@ 15-19
 

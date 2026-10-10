@@ -1,6 +1,6 @@
 ---
 src: src/storage.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 119
 ---
@@ -25,7 +25,7 @@ lines: 119
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/App.tsx`（L31-33、L45、L55、L65-67） | 起動時の読み込みと、変わるたびの保存 |
+| 呼ばれる | `src/ui/App.tsx`（L32-34、L47、L57、L67-69） | 起動時の読み込みと、変わるたびの保存 |
 | 型を貸す | `src/ui/SongSelect.tsx`、`src/ui/Play.tsx`、`src/ui/Result.tsx`、`src/ui/Calibrate.tsx`、`src/ui/SettingsPanel.tsx`、`src/game/engine.ts` | `Settings` の形 |
 | 呼ばれる | `src/ui/SongSelect.tsx` の L69・L95・L134 | `bestKey` で自己ベストの表を引く |
 | 呼ぶ | `src/song/types.ts` の `DIFFICULTIES` | 難易度として正しい文字列かを確かめる |
@@ -66,7 +66,7 @@ lines: 119
 
 > **文法: interface と readonly**
 >
-> `interface 名前 { 項目: 型; … }` は、オブジェクトの形（どんな名前の項目を持ち、それぞれがどんな種類の値か）に名前を付ける書き方です。`src/ui/App.tsx` の L22 の `type 名前 = { … }` とほぼ同じことができます。このコードでは、オブジェクトの形には主に `interface`、合併型 `|` などそれ以外には `type` を使っています。
+> `interface 名前 { 項目: 型; … }` は、オブジェクトの形（どんな名前の項目を持ち、それぞれがどんな種類の値か）に名前を付ける書き方です。`src/ui/App.tsx` の L23 の `type 名前 = { … }` とほぼ同じことができます。このコードでは、オブジェクトの形には主に `interface`、合併型 `|` などそれ以外には `type` を使っています。
 >
 > ```ts
 > interface Settings {
@@ -212,7 +212,7 @@ L38-46 は、7 項目を 1 つずつ確かめて新しいオブジェクトを�
 
 `loadSettings` は「読んで、確かめて、返す」を 1 行にしたものです。何も保存されていなければ `read` が `null` を返し、`sanitizeSettings(null)` は既定値と同じ設定を返します。
 
-`saveSettings` は設定の全体を保存します。呼ぶのは `src/ui/App.tsx` の L55 だけで、設定が変わるたびに呼ばれます。
+`saveSettings` は設定の全体を保存します。呼ぶのは `src/ui/App.tsx` の L57 だけで、設定が変わるたびに呼ばれます。
 
 @@ 74-79
 
@@ -257,13 +257,13 @@ L85 の `(entry): entry is [string, number] =>` は、`filter` に渡す関数�
 3. L94 保存する
 4. L95 新しい表を返す
 
-元の表 `best` を書き換えずに新しい表を返すのは、`src/ui/App.tsx` の L67 で、戻り値をそのまま `setBest` に渡すからです。React は「前と別のオブジェクトか」で変化を見分けます。記録を更新しなかったときに元の表を返すと、`setBest` に同じものが渡り、React は描き直しを省きます。
+元の表 `best` を書き換えずに新しい表を返すのは、`src/ui/App.tsx` の L69 で、戻り値をそのまま `setBest` に渡すからです。React は「前と別のオブジェクトか」で変化を見分けます。記録を更新しなかったときに元の表を返すと、`setBest` に同じものが渡り、React は描き直しを省きます。
 
-オートプレイのときにこの関数を呼ばないのは、呼び出し側（`src/ui/App.tsx` の L67）の役目です。
+オートプレイのときにこの関数を呼ばないのは、呼び出し側（`src/ui/App.tsx` の L69）の役目です。
 
 @@ 98-105
 
-`LastSelection` は、選曲画面で最後に選んでいた曲と難易度です。`songId` が `string | null` なのは、初めて遊ぶ人にはまだ選んだ曲が無いからです。`null` のときは `src/ui/App.tsx` の L43 で一覧の先頭の曲を選びます。
+`LastSelection` は、選曲画面で最後に選んでいた曲と難易度です。`songId` が `string | null` なのは、初めて遊ぶ人にはまだ選んだ曲が無いからです。`null` のときは `src/ui/App.tsx` の L45 で一覧の先頭の曲を選びます。
 
 `DEFAULT_SELECTION` は「曲は未選択、難易度は NORMAL」です。
 
@@ -292,8 +292,8 @@ L85 の `(entry): entry is [string, number] =>` は、`filter` に渡す関数�
 
 L109 の書き方は、確かめと型の絞り込みを一度に済ませています。`obj.difficulty` は `unknown` ですが、`find` が返すのは `DIFFICULTIES` の要素なので、結果は最初から `Difficulty` 型です。
 
-この関数は曲 ID が**いまの曲の一覧にあるか**までは確かめません。一覧は読み込みが終わるまで分からないので、そこは `src/ui/App.tsx` の L43 が受け持ちます。
+この関数は曲 ID が**いまの曲の一覧にあるか**までは確かめません。一覧は読み込みが終わるまで分からないので、そこは `src/ui/App.tsx` の L45 が受け持ちます。
 
 @@ 113-119
 
-`loadSelection`・`saveSelection` は、設定の `loadSettings`・`saveSettings`（L66-72）と同じ形です。`saveSelection` は `src/ui/App.tsx` の L45 で、選んだ曲や難易度が変わるたびに呼ばれます。
+`loadSelection`・`saveSelection` は、設定の `loadSettings`・`saveSettings`（L66-72）と同じ形です。`saveSelection` は `src/ui/App.tsx` の L47 で、選んだ曲や難易度が変わるたびに呼ばれます。

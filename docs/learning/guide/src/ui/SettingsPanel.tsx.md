@@ -1,6 +1,6 @@
 ---
 src: src/ui/SettingsPanel.tsx
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 82
 ---
@@ -19,7 +19,7 @@ lines: 82
 | キー音（`keysound`） | チェックボックス | オン・オフ | L69-72 |
 | オートプレイ（`autoplay`） | チェックボックス | オン・オフ | L73-76 |
 
-この部品も、設定を自分では覚えていません。今の設定を `settings` で受け取って表示し、変えられたら、その 1 つだけを変えた新しい設定を `onSettings` で渡します。保存は `App` がします（`src/ui/App.tsx` の L53-56）。
+この部品も、設定を自分では覚えていません。今の設定を `settings` で受け取って表示し、変えられたら、その 1 つだけを変えた新しい設定を `onSettings` で渡します。保存は `App` がします（`src/ui/App.tsx` の L55-58）。
 
 ## 呼ぶ・呼ばれる
 
@@ -38,7 +38,7 @@ lines: 82
 | `inputOffsetMs` | 判定に使う時刻（`src/game/engine.ts` の L124） |
 | `visualOffsetMs` | 描く時刻（`src/game/engine.ts` の L204） |
 | `keysound` | 叩いた音だけを鳴らす（`src/game/engine.ts` の L59-63、L129） |
-| `autoplay` | 自動で叩く見本の再生。自己ベストに残さない（`src/ui/App.tsx` の L66） |
+| `autoplay` | 自動で叩く見本の再生。自己ベストに残さない（`src/ui/App.tsx` の L68） |
 
 ## このファイルで初めて出てくる文法
 

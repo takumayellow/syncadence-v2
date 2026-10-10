@@ -1,6 +1,6 @@
 ---
 src: src/song/types.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 55
 ---
@@ -74,7 +74,7 @@ lines: 55
 
 `DIFFICULTY_LABELS` は、難易度の内部名から画面に出す表示名への対応表です。`Record<Difficulty, string>`（文法の索引の『Record 型』）は「`Difficulty` の 4 つの値それぞれを鍵にして、文字列を持つ」という型なので、4 つのうち 1 つでも書き忘れると TypeScript がエラーにします。
 
-表示名は今のところ大文字にしただけですが、表を分けておくことで、内部名（JSON の鍵や保存データに使う）を変えずに表示だけを変えられます。使う所は選曲画面（`src/ui/SongSelect.tsx` の L143）、プレイ画面の見出し（`src/ui/Play.tsx` の L203）、結果画面（`src/ui/Result.tsx` の L41）です。
+表示名は今のところ大文字にしただけですが、表を分けておくことで、内部名（JSON の鍵や保存データに使う）を変えずに表示だけを変えられます。使う所は選曲画面（`src/ui/SongSelect.tsx` の L143）、プレイ画面の見出し（`src/ui/Play.tsx` の L211）、結果画面（`src/ui/Result.tsx` の L41）です。
 
 @@ 10-12
 

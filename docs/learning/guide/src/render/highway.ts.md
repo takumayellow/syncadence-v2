@@ -1,6 +1,6 @@
 ---
 src: src/render/highway.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 422
 ---
@@ -195,7 +195,7 @@ L67 の `laneRgb` は、レーン番号から色を選ぶ小さな関数です�
 
 @@ 69-73
 
-`src/ui/Play.tsx` の L151 から、指で画面を押したときに呼ばれます。画面の幅と高さとレーン数で `makeTrack` を作り、`src/render/perspective.ts` の `laneAtX` に x を渡すだけです。判定線の高さでのレーン幅だけで決め、y は使いません（理由は `perspective.ts` の L78-86 の解説）。
+`src/ui/Play.tsx` の L152 から、指で画面を押したときに呼ばれます。画面の幅と高さとレーン数で `makeTrack` を作り、`src/render/perspective.ts` の `laneAtX` に x を渡すだけです。判定線の高さでのレーン幅だけで決め、y は使いません（理由は `perspective.ts` の L78-86 の解説）。
 
 `makeTrack` は計算が数回だけの軽い関数なので、押すたびに作り直しても問題になりません。
 
@@ -580,7 +580,7 @@ L277 のコメントのとおり、**今のコンボの桁数ではなく、い�
 
 @@ 408-422
 
-1 コマを描く入口です。`src/ui/Play.tsx` の L97 から、画面の書き換えのたび（多くの画面で 1 秒に 60 回）呼ばれます。
+1 コマを描く入口です。`src/ui/Play.tsx` の L98 から、画面の書き換えのたび（多くの画面で 1 秒に 60 回）呼ばれます。
 
 1. L409 画面の大きさとレーン数から、レーンの置き方 `t` を作る（`src/render/perspective.ts` の `makeTrack`）。画面の大きさが変わってもすぐ追従できるよう、毎回作り直します。
 2. L410 画面の下の端の深さ `bottomDepth`（1.28）。

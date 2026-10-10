@@ -1,6 +1,6 @@
 ---
 src: src/ui/Calibrate.tsx
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 132
 ---
@@ -26,7 +26,7 @@ lines: 132
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/App.tsx` の L102-103 | タイミング調整の画面として描かれる |
+| 呼ばれる | `src/ui/App.tsx` の L104-105 | タイミング調整の画面として描かれる |
 | 呼ぶ | `src/audio/context.ts` の `audioKit` | ゲーム全体で 1 つだけ作る `AudioContext`（音の時計と出口） |
 | 呼ぶ | `src/audio/clock.ts` の `SongClock` | 押した時刻を「聞こえている音の時刻」に直す |
 | 呼ぶ | `src/game/engine.ts` の `eventTimeMs` | キーや指のイベントに付いた時刻を、壊れていなければ使う |

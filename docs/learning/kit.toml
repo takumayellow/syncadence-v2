@@ -11,7 +11,7 @@ lead = """
 [source]
 repo = "takumayellow/syncadence-v2"
 ref = "main"
-commit = "eb9c698"
+commit = "404da56"
 origin = "git"
 path = "../.."
 

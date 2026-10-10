@@ -1,6 +1,6 @@
 ---
 src: tools/build_songs.py
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 98
 ---
@@ -142,7 +142,7 @@ L42 の `duration` は、すべての音の「鳴り終わる秒」のうち一�
 
 L59 の `round(first_tempo)` は、桁を指定しない `round` なので、結果は整数になります。
 
-`credit` は、プレイ画面の開始前に「楽譜: Mutopia Project #931（浄書者, Public Domain）」のように出典を表示するために入れています（`src/ui/Play.tsx` の L233-238、docs/design.md の 7 節）。※ 推測: パブリックドメインの楽譜には表示の義務はありませんが、どの版をだれが浄書したかを示しておくと、楽譜の出どころをたどれます。
+`credit` は、プレイ画面の開始前に「楽譜: Mutopia Project #931（浄書者, Public Domain）」のように出典を表示するために入れています（`src/ui/Play.tsx` の L241-246、docs/design.md の 7 節）。※ 推測: パブリックドメインの楽譜には表示の義務はありませんが、どの版をだれが浄書したかを示しておくと、楽譜の出どころをたどれます。
 
 `bars` と `beats` は、レーンに横線を引くためのもので（`src/render/highway.ts` の L413-414）、判定には使いません。`bars` は `tools/score.py` の `bar_lines` が返す小節線なので、弱起の始まり（0 秒）は入りません。
 

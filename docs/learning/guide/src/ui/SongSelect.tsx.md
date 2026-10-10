@@ -1,6 +1,6 @@
 ---
 src: src/ui/SongSelect.tsx
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 176
 ---
@@ -21,7 +21,7 @@ lines: 176
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/App.tsx` の L106-118 | 選曲画面として描かれる |
+| 呼ばれる | `src/ui/App.tsx` の L108-120 | 選曲画面として描かれる |
 | 呼ぶ | `src/ui/select.ts` の `jacketHue`・`composerMark`・`stepIndex`・`stepDifficulty` | ジャケットの色と文字、キー操作での移動 |
 | 呼ぶ | `src/ui/format.ts`（解説キット外）の `formatTime`・`rankOf` | 秒を `2:10` の形にする。スコアからランク（`src/game/rank.ts` の `rankOf` をそのまま渡したもの） |
 | 呼ぶ | `src/storage.ts` の `bestKey` | 自己ベストの表を引くキーを作る |
@@ -86,7 +86,7 @@ L4 の `SettingsDrawer` と L5 の `format.ts` は、この解説キットには
 | `onPlay` | | 遊び始める（L58、L101、L155） |
 | `onCalibrate` | | 「タイミング調整」を押した（L79、L173） |
 
-`App` 側でこれらの関数が何をするかは `src/ui/App.tsx` の L104-119 にあります。
+`App` 側でこれらの関数が何をするかは `src/ui/App.tsx` の L106-121 にあります。
 
 @@ 22-26
 
@@ -157,7 +157,7 @@ L45-60 の `onKey` は、キーが押されるたびにブラウザから呼ば�
 
 L55-56 で、ボタンにフォーカスがあるときの Enter を除くのは、ブラウザが「フォーカスのあるボタンを Enter で押す」を自分でするからです。ここでも始めてしまうと、たとえば「タイミング調整」のボタンにフォーカスがあるときの Enter で、調整の画面へ移ると同時にプレイも始まりかねません。
 
-L63 の依存配列は、`onKey` の中で使っている値すべてです。`onKey` は作られたときの `selectedId` や `difficulty` を覚えたまま呼ばれるので、それらが変わったら、新しい値を覚えた `onKey` に付け替える必要があります。`onSelect`・`onDifficulty`・`onPlay` は `App` の側で `useCallback` で固定してあるので（`src/ui/App.tsx` の L49-50、L58-61）、変わることはほとんどありません。
+L63 の依存配列は、`onKey` の中で使っている値すべてです。`onKey` は作られたときの `selectedId` や `difficulty` を覚えたまま呼ばれるので、それらが変わったら、新しい値を覚えた `onKey` に付け替える必要があります。`onSelect`・`onDifficulty`・`onPlay` は `App` の側で `useCallback` で固定してあるので（`src/ui/App.tsx` の L51-52、L60-63）、変わることはほとんどありません。
 
 @@ 65-70
 
