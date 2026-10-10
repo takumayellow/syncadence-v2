@@ -1,6 +1,6 @@
 ---
 src: src/game/engine.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 220
 ---
@@ -22,7 +22,7 @@ lines: 220
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx`（L57 で作る。L36・L40・L108・L136・L141・L153・L159・L81・L84・L95・L65） | 進行役の作成、`resume` / `pause` / `start` / `press` / `release` / `tick` / `stats` / `frame` / `dispose` |
+| 呼ばれる | `src/ui/Play.tsx`（L58 で作る。L37・L41・L109・L137・L142・L154・L160・L82・L85・L96・L66） | 進行役の作成、`resume` / `pause` / `start` / `press` / `release` / `tick` / `stats` / `frame` / `dispose` |
 | 呼ばれる | `src/ui/Calibrate.tsx` の L4, L66 | `eventTimeMs` だけを借りて、タップの時刻を確かめる |
 | 呼ぶ | `src/audio/clock.ts` の `SongClock` | `performance.now()` の時刻と曲の位置の換算（`songTimeAt`）、曲の位置と `AudioContext` の時刻の換算（`contextTimeOf`）、毎フレームの合わせ直し（`update`）、一時停止明けの作り直し（`reset`） |
 | 呼ぶ | `src/audio/scheduler.ts` の `EventScheduler` | 曲の音を 0.4 秒（曲の時間）先まで順に取り出す |
@@ -134,9 +134,9 @@ lines: 220
 
 | 欄 | 中身 | 渡す側 |
 |---|---|---|
-| `ctx` | ページに 1 つだけの `AudioContext` | `Play.tsx` の L51 で `audioKit()` から |
+| `ctx` | ページに 1 つだけの `AudioContext` | `Play.tsx` の L52 で `audioKit()` から |
 | `sampler` | 音源を読み、鳴らす役 | 同上 |
-| `song` | 曲のデータ（音のリスト `events`、難易度ごとの譜面 `charts`、小節線と拍の時刻など） | `Play.tsx` の L48 |
+| `song` | 曲のデータ（音のリスト `events`、難易度ごとの譜面 `charts`、小節線と拍の時刻など） | `Play.tsx` の L49 |
 | `difficulty` | 難易度 | props |
 | `settings` | 設定（補正・テンポ・音量など） | `Play.tsx` の `settingsRef` |
 
@@ -149,7 +149,7 @@ lines: 220
 > - **中身（フィールド）**: その物が持つ値。L33-47 の `session`・`lanes`・`clock` など
 > - **メソッド**: その物にできること。L75 の `sound`、L80 の `start` など。関数と同じ書き方で、`function` を付けない
 >
-> `new PlayEngine({ … })`（`Play.tsx` の L57）と書くと、設計図から物（インスタンス）が 1 つ作られます。作るときに 1 回だけ動くのが `constructor`（L49-69）です。
+> `new PlayEngine({ … })`（`Play.tsx` の L58）と書くと、設計図から物（インスタンス）が 1 つ作られます。作るときに 1 回だけ動くのが `constructor`（L49-69）です。
 >
 > メソッドの中の `this` は「いま操作されている、その物自身」です。`this.lanes` は「この進行役のレーン数」、`this.handle(…)` は「この進行役の `handle` メソッドを呼ぶ」という意味になります。
 >
@@ -238,7 +238,7 @@ L68 で、それに余韻の 2.5 秒を足した位置と、曲の長さ `song.d
 >
 > `set` を書いていないので、外から `engine.state = "playing"` と書き換えることはできません。
 
-本当の状態は `private` の `stateValue` にしまい、外には読むことだけを許しています。`Play.tsx` はキー入力のたびに `engine.state` を見て、開始・一時停止・判定のどれにするかを決めます（`Play.tsx` の L116-133）。
+本当の状態は `private` の `stateValue` にしまい、外には読むことだけを許しています。`Play.tsx` はキー入力のたびに `engine.state` を見て、開始・一時停止・判定のどれにするかを決めます（`Play.tsx` の L117-134）。
 
 @@ 74-78
 
@@ -252,7 +252,7 @@ L76 の `const [, pitch, duration, velocity] = event;` は配列の分割代入�
 
 @@ 79-90
 
-**曲を始めます。** `Play.tsx` の `begin`（L107-109）から、キーかタップの操作の中で呼ばれます。
+**曲を始めます。** `Play.tsx` の `begin`（L108-110）から、キーかタップの操作の中で呼ばれます。
 
 `async` のメソッドなので、中の `await` で待つ間に呼んだ側へ戻ります（文法の索引の「async / await と Promise」）。戻り値の型 `Promise<void>` は「終わったことだけを知らせ、値は返さない」という意味です。
 
@@ -304,11 +304,11 @@ startContextTime = ctx.currentTime + START_DELAY − startSong / rate
 
 > **文法: void 演算子**
 >
-> `void 式` は、式を実行して、その結果を捨てます。L96 の `ctx.suspend()` は Promise（「止め終わったら知らせる」約束）を返しますが、ここでは止め終わるのを待ちません。何も付けずに書くと、検査ツールが「Promise を待ちも受け止めもしていない。うっかりでは？」と警告します。`void` を付けて「わざと捨てている」と示します。`Play.tsx` の L36・L108 の `void` も同じ意味です。
+> `void 式` は、式を実行して、その結果を捨てます。L96 の `ctx.suspend()` は Promise（「止め終わったら知らせる」約束）を返しますが、ここでは止め終わるのを待ちません。何も付けずに書くと、検査ツールが「Promise を待ちも受け止めもしていない。うっかりでは？」と警告します。`void` を付けて「わざと捨てている」と示します。`Play.tsx` の L37・L109 の `void` も同じ意味です。
 
 **音の時計を止めると、全部が一緒に止まります。** `ctx.suspend()` で `AudioContext` の `currentTime` が進まなくなり、すでに 0.4 秒先まで予約してあった音も、その時刻のまま待たされます。再開すれば、予約した音は元の間隔のまま鳴り出します。音の予約を取り消して作り直す必要がありません。
 
-**なぜ `pausedAtMs` が要るのか。** 描画のループ（`Play.tsx` の L78-98）は一時停止中も回り、毎フレーム `frame(performance.now())` を呼びます。曲の位置は `songTimeAt(nowMs)` = `(offset + nowMs / 1000 − startContextTime) × rate` で出すので、`offset` を合わせ直さないまま `nowMs` だけが進むと、**音は止まっているのにノーツが流れ続けます**。一時停止中は `tick` が `clock.update` を呼ばないので（L180）、`offset` は止めた瞬間のままです。そこで `frame` は、一時停止中は `nowMs` の代わりに `pausedAtMs` を使い（L195）、止めた瞬間の絵を描き続けます。判定の光の年齢（`nowMs − atMs`）も止まるので、光も止まって見えます。
+**なぜ `pausedAtMs` が要るのか。** 描画のループ（`Play.tsx` の L79-99）は一時停止中も回り、毎フレーム `frame(performance.now())` を呼びます。曲の位置は `songTimeAt(nowMs)` = `(offset + nowMs / 1000 − startContextTime) × rate` で出すので、`offset` を合わせ直さないまま `nowMs` だけが進むと、**音は止まっているのにノーツが流れ続けます**。一時停止中は `tick` が `clock.update` を呼ばないので（L180）、`offset` は止めた瞬間のままです。そこで `frame` は、一時停止中は `nowMs` の代わりに `pausedAtMs` を使い（L195）、止めた瞬間の絵を描き続けます。判定の光の年齢（`nowMs − atMs`）も止まるので、光も止まって見えます。
 
 @@ 98-109
 
@@ -328,7 +328,7 @@ startContextTime = ctx.currentTime + START_DELAY − startSong / rate
 
 @@ 110-118
 
-**片付け。** `Play.tsx` が閉じられるときに呼ばれます（`Play.tsx` の L65）。
+**片付け。** `Play.tsx` が閉じられるときに呼ばれます（`Play.tsx` の L66）。
 
 - L114 `cancelScheduledValues(t)`: 音量のつまみに予約してあった変化を取り消す
 - L115 `setTargetAtTime(0, t, 0.03)`: いまから音量を 0 に向けてなめらかに下げる。0.03 秒は「残りが約 37% になるまでの時間」で、0.09 秒後には約 5%、0.15 秒後には 1% 未満になる（いきなり 0 にすると「プツッ」と鳴るため）
@@ -415,7 +415,7 @@ L164 の `notes[this.autoCursor]!` の `!` は文法の索引の「非 null 表�
 
 @@ 176-192
 
-**毎フレーム呼ばれる進行**です。`Play.tsx` の L81 から、描画のループの時刻 `nowMs`（`performance.now()`）で呼ばれます。曲が終わったら `true` を返します。
+**毎フレーム呼ばれる進行**です。`Play.tsx` の L82 から、描画のループの時刻 `nowMs`（`performance.now()`）で呼ばれます。曲が終わったら `true` を返します。
 
 1. **プレイ中でなければ何もしない**（L180）。開始前・一時停止中は `false`、終わった後は `true` を返す
 2. **時計を合わせ直す**（L181）。`clock.update` が `performance.now()` と音の時計の対応 `offset` を測り直し、揺れをならす
@@ -437,7 +437,7 @@ L164 の `notes[this.autoCursor]!` の `!` は文法の索引の「非 null 表�
 
 @@ 193-215
 
-**描画の材料をまとめます。** `Play.tsx` の L95 から、描画のループの時刻 `drawMs` で呼ばれ、結果は `drawFrame`（`src/render/highway.ts` の L408）へ渡ります。
+**描画の材料をまとめます。** `Play.tsx` の L96 から、描画のループの時刻 `drawMs` で呼ばれ、結果は `drawFrame`（`src/render/highway.ts` の L408）へ渡ります。
 
 **描く時刻（L195）**: 一時停止中なら `pausedAtMs`、それ以外は `drawMs` です（`??` は左が `null` なら右、文法の索引の「オプショナルチェーン `?.` と `??`」）。理由は L91-97 の解説を見てください。
 
@@ -472,4 +472,4 @@ songTime = heard − 表示の補正(ms) / 1000 × rate     （開始後だけ�
 
 @@ 216-220
 
-成績のまとめを返します。中身は `GameSession.stats()` で、判定ごとの数・コンボ・スコア・押した時刻のずれの並びです（`src/game/session.ts` の L173-183）。`Play.tsx` の L84 で、曲が終わったときに 1 度だけ呼ばれ、`App.tsx` を通って結果画面（`src/ui/Result.tsx`）に届きます。
+成績のまとめを返します。中身は `GameSession.stats()` で、判定ごとの数・コンボ・スコア・押した時刻のずれの並びです（`src/game/session.ts` の L173-183）。`Play.tsx` の L85 で、曲が終わったときに 1 度だけ呼ばれ、`App.tsx` を通って結果画面（`src/ui/Result.tsx`）に届きます。

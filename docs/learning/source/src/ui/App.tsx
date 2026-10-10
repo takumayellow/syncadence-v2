@@ -15,6 +15,7 @@ import {
   type Settings,
 } from "../storage";
 import { Calibrate } from "./Calibrate";
+import { useLandscapeFullscreen } from "./landscape";
 import { Play } from "./Play";
 import { Result } from "./Result";
 import { SongSelect } from "./SongSelect";
@@ -32,6 +33,7 @@ export function App() {
   const [best, setBest] = useState<BestScores>(loadBest);
   const [selection, setSelection] = useState<LastSelection>(loadSelection);
   const [screen, setScreen] = useState<Screen>({ kind: "select" });
+  useLandscapeFullscreen();
 
   useEffect(() => {
     loadIndex()

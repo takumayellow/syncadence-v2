@@ -1,6 +1,6 @@
 ---
 src: src/ui/Result.tsx
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 90
 ---
@@ -21,7 +21,7 @@ lines: 90
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/App.tsx` の L88-101 | 結果画面として描かれる |
+| 呼ばれる | `src/ui/App.tsx` の L90-103 | 結果画面として描かれる |
 | 呼ぶ | `src/game/stats.ts` の `summarizeDeltas` | タイミングのずれの中央値と、早め・遅めの回数 |
 | 呼ぶ | `src/ui/format.ts`（解説キット外）の `rankOf`・`signedMs` | ランク（`src/game/rank.ts` の `rankOf`）。ミリ秒を `+15 ms` の形に |
 | 借りる | `src/game/judge.ts` の `JUDGEMENTS` | 判定の並び `perfect`・`great`・`good`・`miss` |
@@ -65,7 +65,7 @@ lines: 90
 | `settings`・`onSettings` | 設定と、設定を変える関数（L74 の提案のボタンで使う） |
 | `onRetry`・`onBack` | もう一度遊ぶ・選曲に戻る |
 
-`previousBest` が「前の」記録なのは、`App` が結果画面に切り替える前に自己ベストを書き換えるからです（`src/ui/App.tsx` の L65-67）。書き換えた後の記録と比べると、更新したかどうかが分からなくなります。
+`previousBest` が「前の」記録なのは、`App` が結果画面に切り替える前に自己ベストを書き換えるからです（`src/ui/App.tsx` の L67-69）。書き換えた後の記録と比べると、更新したかどうかが分からなくなります。
 
 L21 の `LABEL` は、判定の名前（`perfect`）から画面に出す文字（`PERFECT`）への対応表です。`as const` は、中身を書き換えられない、決まった値の表にする印です（文法の索引の『as const と配列の要素の型』）。
 
@@ -107,7 +107,7 @@ L27 の `suggestion` は、補正をどれだけ動かすかの提案です。�
 
 選曲画面と違い、Ctrl などとの組み合わせや、入力欄にいるかは確かめていません。結果画面には入力欄が無いからです。
 
-`onRetry` と `onBack` は L36 の依存配列に入っています。`App` は `onRetry` を描くたびに新しいアロー関数として渡すので（`src/ui/App.tsx` の L98）、`App` が描き直されるたびに、キーの受け付けも付け直されます。
+`onRetry` と `onBack` は L36 の依存配列に入っています。`App` は `onRetry` を描くたびに新しいアロー関数として渡すので（`src/ui/App.tsx` の L100）、`App` が描き直されるたびに、キーの受け付けも付け直されます。
 
 @@ 38-49
 

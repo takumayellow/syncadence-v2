@@ -38,8 +38,9 @@ flowchart LR
 
 | ファイル | 役目 |
 |---|---|
-| [main.tsx](../code/src-main.tsx.html) | 入口。React に `App` を描かせる |
+| [main.tsx](../code/src-main.tsx.html) | 入口。React に `App` と `RotateHint` を描かせる |
 | [App.tsx](../code/src-ui-App.tsx.html) | いまどの画面か（選曲・プレイ・結果・タイミング調整）を持ち、切り替える |
+| [landscape.ts](../code/src-ui-landscape.ts.html) / [RotateHint.tsx](../code/src-ui-RotateHint.tsx.html) | スマホでは、タップで全画面に入って横向きに固定し、縦に持っている間は「横向きにしてください」を重ねる |
 | [SongSelect.tsx](../code/src-ui-SongSelect.tsx.html) / [select.ts](../code/src-ui-select.ts.html) | 選曲画面。矢印キーで曲と難易度を動かす |
 | [Play.tsx](../code/src-ui-Play.tsx.html) | プレイ画面。曲を読み込み、毎フレームの進行と描画を回し、キーとタッチを `PlayEngine` に渡す |
 | [Result.tsx](../code/src-ui-Result.tsx.html) | 結果画面。スコア・ランク・判定の内訳・押した時刻のずれ |
@@ -88,7 +89,7 @@ flowchart LR
 
 1. まず `notes/02-from-score` と `notes/03-one-note` で、譜面ができるまでと、ノーツ 1 つが判定されるまでの筋をつかみます。
 2. 次にコードを、プレイの流れに沿って読みます。
-   - 画面の入口: `main.tsx` → `App.tsx` → `storage.ts`
+   - 画面の入口: `main.tsx` → `App.tsx` → `landscape.ts` → `RotateHint.tsx` → `storage.ts`
    - 曲を読む: `song/types.ts` → `song/load.ts` → `song/validate.ts` → `SongSelect.tsx` → `select.ts`
    - プレイ: `Play.tsx` → `engine.ts` → `keys.ts` → `session.ts` → `judge.ts`
    - 音と時計: `context.ts` → `clock.ts` → `scheduler.ts` → `sampler.ts` → `regions.ts`
@@ -100,7 +101,7 @@ flowchart LR
 
 ## 写したファイルと、写していないもの
 
-このキットはコミット `eb9c698` の 30 ファイルを丸ごと写しています。プレイの筋に関わらないものは外しました。
+このキットはコミット `404da56` の 32 ファイルを丸ごと写しています。プレイの筋に関わらないものは外しました。
 
 - `src/ui/format.ts`（秒を「2:10」の形にするなどの小さな整形）と `src/ui/SettingsDrawer.tsx`（選曲画面の右から出す枠。中に `SettingsPanel.tsx` と遊び方の説明を入れる）。
 - `tools/inspect_chart.py`（作った譜面を確かめるための道具）。

@@ -1,6 +1,6 @@
 ---
 src: src/game/keys.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 22
 ---
@@ -17,7 +17,7 @@ lines: 22
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx` の L111, L140（`laneOfKey`）、L117（`isStartKey`） | 押されたキーをレーンに直す、開始の合図かを見る |
+| 呼ばれる | `src/ui/Play.tsx` の L112, L141（`laneOfKey`）、L118（`isStartKey`） | 押されたキーをレーンに直す、開始の合図かを見る |
 | 呼ばれる | `src/game/engine.ts` の L52（`keyLabels`） | 描画の材料 `Frame.keyLabels` に入れ、レーンの下に文字を出す |
 | 呼ばれる | `src/ui/Calibrate.tsx` の L77（`isStartKey`） | タイミングを測る画面で、叩いたキーを数えてよいかを見る |
 | 呼ぶ | なし | |
@@ -54,7 +54,7 @@ lines: 22
 1. `LANE_KEYS[lanes] ?? []` — そのレーン数の並び。表に無いレーン数なら空の配列（文法の索引の「オプショナルチェーン `?.` と `??`」）
 2. `.map((code) => code.replace("Key", ""))` — 各名前から `"Key"` を取り除く（文法の索引の「map・filter・reduce」）。`"KeyD"` は `"D"` になる
 
-結果は 4 レーンなら `["D", "F", "J", "K"]` です。`PlayEngine` が作るときに 1 度だけ呼び（`src/game/engine.ts` の L52）、毎フレームの `Frame` に入れます。タッチだけの端末では `Play.tsx` が空にして渡すので出ません（`src/ui/Play.tsx` の L97）。
+結果は 4 レーンなら `["D", "F", "J", "K"]` です。`PlayEngine` が作るときに 1 度だけ呼び（`src/game/engine.ts` の L52）、毎フレームの `Frame` に入れます。タッチだけの端末では `Play.tsx` が空にして渡すので出ません（`src/ui/Play.tsx` の L98）。
 
 @@ 11-15
 
@@ -112,4 +112,4 @@ Shift は L20 で確かめていないので、Shift+D は合図になります�
 
 **なぜ除く方式なのか。** 曲は「何かキーを押すとスタート」なので、どのキーを押した人にも応えたい一方、F11 で全画面にした・Alt+Tab で戻ってきた、という操作で勝手に始まると困ります。始めてよいキーを並べると漏れが出るので、始めてはいけないキーの方を並べています。
 
-`Play.tsx` は合図に使ったキーを判定に回しません（`src/ui/Play.tsx` の L116-120）。D を押して始めても、その D はノーツを叩いたことになりません。
+`Play.tsx` は合図に使ったキーを判定に回しません（`src/ui/Play.tsx` の L117-121）。D を押して始めても、その D はノーツを叩いたことになりません。

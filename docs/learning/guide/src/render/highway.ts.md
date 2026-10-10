@@ -1,6 +1,6 @@
 ---
 src: src/render/highway.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 422
 ---
@@ -21,13 +21,13 @@ lines: 422
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx`（L6 で import、L97 で `drawFrame`、L151 で `laneAt`） | 毎フレームの描画と、タッチした位置のレーン |
+| 呼ばれる | `src/ui/Play.tsx`（L6 で import、L98 で `drawFrame`、L152 で `laneAt`） | 毎フレームの描画と、タッチした位置のレーン |
 | 型を使われる | `src/game/engine.ts`（L4 で `Flash`・`Frame` を import） | エンジンが `Frame` と `Flash` を作る |
 | 呼ぶ | `src/render/perspective.ts` | レーンの置き方と、深さ・y・レーンの端の計算 |
 | 呼ぶ | `src/game/session.ts` の `GameSession`（`notes`・`stateOf`・`hud`） | 流れているノーツと、その状態、今のコンボとスコア |
 | 読む | `src/game/judge.ts` の `MAX_SCORE`・`Judgement`、`src/game/rank.ts` の `RANKS`・`rankOf` | スコアのゲージの長さとランクの目盛り、ランクの文字 |
 
-`src/ui/Play.tsx` は描く前に `g.setTransform(dpr, 0, 0, dpr, 0, 0)`（Play.tsx L94）で、canvas の目盛りを画面の拡大率（高解像度の画面なら 2 など）に合わせています。そのため、このファイルの座標と大きさはすべて **CSS の px**（画面の拡大率をかける前の大きさ）で考えれば足ります。
+`src/ui/Play.tsx` は描く前に `g.setTransform(dpr, 0, 0, dpr, 0, 0)`（Play.tsx L95）で、canvas の目盛りを画面の拡大率（高解像度の画面なら 2 など）に合わせています。そのため、このファイルの座標と大きさはすべて **CSS の px**（画面の拡大率をかける前の大きさ）で考えれば足ります。
 
 ## このファイルで初めて出てくる文法
 
@@ -112,7 +112,7 @@ lines: 422
 | `pressed` | レーンごとに、いま押しているか | L209 |
 | `flashes` | 最近の判定（`Flash`）の一覧 | L210 |
 | `nowMs` | 描く時刻（`performance.now()` のミリ秒）。一時停止中は止めた時刻のまま | L195、L211 |
-| `keyLabels` | レーンごとのキーの名前（`D` `F` `J` `K` など）。タッチだけの端末では空（Play.tsx L97） | L212 |
+| `keyLabels` | レーンごとのキーの名前（`D` `F` `J` `K` など）。タッチだけの端末では空（Play.tsx L98） | L212 |
 | `progress` | 曲の進み具合（0〜1。始まる前は負にもなる） | L213 |
 
 `songTime` と `rate` と `approachSeconds` の 3 つで「どのノーツが画面のどこにあるか」が決まり、`nowMs` と `flashes` の 2 つで「光や文字がいまどこまで動いたか」が決まります。前者は**曲の時計**、後者は**実時間の時計**で動く、と分けて覚えると読みやすくなります。
@@ -195,7 +195,7 @@ L67 の `laneRgb` は、レーン番号から色を選ぶ小さな関数です�
 
 @@ 69-73
 
-`src/ui/Play.tsx` の L151 から、指で画面を押したときに呼ばれます。画面の幅と高さとレーン数で `makeTrack` を作り、`src/render/perspective.ts` の `laneAtX` に x を渡すだけです。判定線の高さでのレーン幅だけで決め、y は使いません（理由は `perspective.ts` の L78-86 の解説）。
+`src/ui/Play.tsx` の L152 から、指で画面を押したときに呼ばれます。画面の幅と高さとレーン数で `makeTrack` を作り、`src/render/perspective.ts` の `laneAtX` に x を渡すだけです。判定線の高さでのレーン幅だけで決め、y は使いません（理由は `perspective.ts` の L78-86 の解説）。
 
 `makeTrack` は計算が数回だけの軽い関数なので、押すたびに作り直しても問題になりません。
 
@@ -203,7 +203,7 @@ L67 の `laneRgb` は、レーン番号から色を選ぶ小さな関数です�
 
 > **文法: Canvas 2D**
 >
-> ブラウザの `<canvas>` は、プログラムで絵を描く白紙の板です。`canvas.getContext("2d")`（Play.tsx L73）で「描く道具」を受け取り、その道具に命令を出して描きます。道具の型が `CanvasRenderingContext2D` で、このファイルではいつも `g` という名前で受け取ります。
+> ブラウザの `<canvas>` は、プログラムで絵を描く白紙の板です。`canvas.getContext("2d")`（Play.tsx L74）で「描く道具」を受け取り、その道具に命令を出して描きます。道具の型が `CanvasRenderingContext2D` で、このファイルではいつも `g` という名前で受け取ります。
 >
 > 座標は左上が (0, 0) で、x は右へ、y は**下へ**増えます。
 >
@@ -385,7 +385,7 @@ L67 の `laneRgb` は、レーン番号から色を選ぶ小さな関数です�
 - L214 文字の大きさはレーン 1 本の幅の 14% を 12〜18 px に収めた値。パソコンの画面ではたいてい 18 px（1920×1080・4 レーンなら 52.9 → 18）です。
 - L217-220 レーンごとに、そのレーンの左右の端の真ん中に名前を書く。押している間は白、そうでなければ不透明度 0.42 の白にして、押した手応えを見せます。
 
-タッチだけの端末では `keyLabels` が空なので（Play.tsx L97）、何も書きません。
+タッチだけの端末では `keyLabels` が空なので（Play.tsx L98）、何も書きません。
 
 @@ 223-248
 
@@ -580,7 +580,7 @@ L277 のコメントのとおり、**今のコンボの桁数ではなく、い�
 
 @@ 408-422
 
-1 コマを描く入口です。`src/ui/Play.tsx` の L97 から、画面の書き換えのたび（多くの画面で 1 秒に 60 回）呼ばれます。
+1 コマを描く入口です。`src/ui/Play.tsx` の L98 から、画面の書き換えのたび（多くの画面で 1 秒に 60 回）呼ばれます。
 
 1. L409 画面の大きさとレーン数から、レーンの置き方 `t` を作る（`src/render/perspective.ts` の `makeTrack`）。画面の大きさが変わってもすぐ追従できるよう、毎回作り直します。
 2. L410 画面の下の端の深さ `bottomDepth`（1.28）。

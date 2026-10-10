@@ -1,6 +1,6 @@
 ---
 src: src/audio/context.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 17
 ---
@@ -19,7 +19,7 @@ lines: 17
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/Play.tsx`（L51） | プレイ画面を開いて曲を読み込んだ後、`ctx` と `sampler` を受け取り、音源を読み込んで `PlayEngine` に渡す |
+| 呼ばれる | `src/ui/Play.tsx`（L52） | プレイ画面を開いて曲を読み込んだ後、`ctx` と `sampler` を受け取り、音源を読み込んで `PlayEngine` に渡す |
 | 呼ばれる | `src/ui/Calibrate.tsx`（L42） | タイミング調整の画面で、クリック音を鳴らすための `ctx` を受け取る |
 | 呼ぶ | `src/audio/sampler.ts` の `Sampler` | ピアノの音源を作る |
 | 呼ぶ | ブラウザの `AudioContext` | 音の土台を作る |
@@ -37,7 +37,7 @@ lines: 17
 ## 落とし穴
 
 - **ブラウザは、ページで何か操作されるまで音を鳴らさせません**（自動再生の制限）。操作の前に作った `AudioContext` は `"suspended"`（一時停止）の状態で始まり、操作の中で `resume()` を呼ぶまで時計が進みません（`docs/research/03-web-audio-timing.md` の 6 節）。L10 のコメントの「ユーザー操作の中で最初に呼ぶ」はこのためです。
-- ただし `src/ui/Play.tsx` の L51 は、曲のデータを読み終えた後（クリックやキー操作の処理の外）で `audioKit()` を呼んでいます。それでも鳴るのは、プレイを始める操作の中で `src/game/engine.ts` の `start` が `ctx.resume()`（L84）を呼び直しているからです。
+- ただし `src/ui/Play.tsx` の L52 は、曲のデータを読み終えた後（クリックやキー操作の処理の外）で `audioKit()` を呼んでいます。それでも鳴るのは、プレイを始める操作の中で `src/game/engine.ts` の `start` が `ctx.resume()`（L84）を呼び直しているからです。
 - `AudioContext` を閉じる処理はどこにもありません。ページを開いている間、ずっと 1 つを使い続けます。
 
 ---

@@ -1,6 +1,6 @@
 ---
 src: src/audio/regions.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 67
 ---

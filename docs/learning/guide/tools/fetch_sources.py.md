@@ -1,6 +1,6 @@
 ---
 src: tools/fetch_sources.py
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 102
 ---
@@ -314,7 +314,7 @@ L75-76 で浄書者（`maintainer`）と底本（`source`）を取るのに使�
 | キー | 値 | 使われる所 |
 |---|---|---|
 | `id`・`mutopiaId` | 目録の値 | `build_songs.py` の L53（クレジット） |
-| `pieceUrl` | Mutopia の曲のページ | プレイ前の画面のリンク（`src/ui/Play.tsx` の L235） |
+| `pieceUrl` | Mutopia の曲のページ | プレイ前の画面のリンク（`src/ui/Play.tsx` の L243） |
 | `license` | 常に `"Public Domain"`（L67 を通ったものだけがここに来る） | クレジット |
 | `maintainer`・`edition` | ヘッダの `maintainer` と `source`（L50-52） | クレジット |
 | `files.<拡張子>` | ファイル名・取得元 URL・SHA-256 | `build_songs.py` の L82 でファイル名を使う |

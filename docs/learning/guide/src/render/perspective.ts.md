@@ -1,6 +1,6 @@
 ---
 src: src/render/perspective.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 86
 ---
@@ -21,7 +21,7 @@ lines: 86
 | 向き | 相手 | 何のために |
 |---|---|---|
 | 呼ばれる | `src/render/highway.ts`（L4 で import） | 毎フレームの描画で `makeTrack` を作り、`depthOf`・`yAt`・`depthAtY`・`spreadAt`・`laneEdge` で台形やノーツの位置を出す |
-| 呼ばれる | `src/render/highway.ts` の `laneAt`（L70-72）経由で `src/ui/Play.tsx`（L151） | 画面を指で押したとき、押した位置のレーン番号を得る |
+| 呼ばれる | `src/render/highway.ts` の `laneAt`（L70-72）経由で `src/ui/Play.tsx`（L152） | 画面を指で押したとき、押した位置のレーン番号を得る |
 | 呼ぶ | なし | `Math` の関数だけを使う。他のファイルには頼らない |
 
 ## このファイルで初めて出てくる文法

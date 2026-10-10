@@ -1,6 +1,6 @@
 ---
 src: src/song/load.ts
-commit: eb9c698
+commit: 404da56
 scope: 全文
 lines: 19
 ---
@@ -19,8 +19,8 @@ lines: 19
 
 | 向き | 相手 | 何のために |
 |---|---|---|
-| 呼ばれる | `src/ui/App.tsx`（L3 で取り込み、L37 で `loadIndex()`） | 起動時に選曲画面の一覧を読む |
-| 呼ばれる | `src/ui/Play.tsx`（L7 で取り込み、L48 で `loadSong(songId)`） | プレイ画面を開いたときに、選んだ曲のデータを読む |
+| 呼ばれる | `src/ui/App.tsx`（L3 で取り込み、L39 で `loadIndex()`） | 起動時に選曲画面の一覧を読む |
+| 呼ばれる | `src/ui/Play.tsx`（L7 で取り込み、L49 で `loadSong(songId)`） | プレイ画面を開いたときに、選んだ曲のデータを読む |
 | 呼ぶ | `src/song/validate.ts` の `parseIndex`・`parseSong`・`SONG_ID` | 中身の検査と、曲 ID の形の検査 |
 | 呼ぶ | ブラウザの `fetch` | ネット越しにファイルを取ってくる |
 | 読む | `public/songs/index.json`・`public/songs/<id>.json` | `tools/build_songs.py` が書き出したファイル |
@@ -41,7 +41,7 @@ lines: 19
 ## 落とし穴
 
 - **`fetchJson` は形を確かめない値を返します**（戻り値の型が `unknown`）。そのまま使うと危ないことを型で示していて、必ず `parseIndex` / `parseSong` を通してから使う作りになっています。
-- 失敗はすべて `throw`（エラーを投げる）で知らせます。呼び出し側で受け止めないと、読み込みに失敗したことが画面に出ません。`App.tsx` と `Play.tsx` はそれぞれ受け止めて、エラーの文を画面に出しています（Play.tsx の L59-61）。
+- 失敗はすべて `throw`（エラーを投げる）で知らせます。呼び出し側で受け止めないと、読み込みに失敗したことが画面に出ません。`App.tsx` と `Play.tsx` はそれぞれ受け止めて、エラーの文を画面に出しています（Play.tsx の L61-63）。
 
 ---
 
@@ -102,7 +102,7 @@ lines: 19
 
 `loadIndex` は曲一覧を取ってきます。`await fetchJson("songs/index.json")` で中身が届くのを待ち、それを `parseIndex`（`src/song/validate.ts` の L39）に渡します。`parseIndex` は形がおかしければエラーを投げ、正しければ `SongSummary` の配列として返します。
 
-戻り値の型 `Promise<SongSummary[]>` は「あとで `SongSummary` の配列が届く約束」です。呼び出し側の `src/ui/App.tsx` の L37 は `loadIndex()` が返す約束に、結果が届いたら一覧を画面に入れる処理をつないでいます。
+戻り値の型 `Promise<SongSummary[]>` は「あとで `SongSummary` の配列が届く約束」です。呼び出し側の `src/ui/App.tsx` の L39 は `loadIndex()` が返す約束に、結果が届いたら一覧を画面に入れる処理をつないでいます。
 
 @@ 15-19
 
