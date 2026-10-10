@@ -2,6 +2,7 @@
 @media (prefers-reduced-motion: reduce) {
   body::after,
   .ready-go,
+  .rotate-hint-icon,
   .drawer {
     animation: none;
   }
