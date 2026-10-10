@@ -7,6 +7,7 @@ import { drawFrame, laneAt } from "../render/highway";
 import { loadSong } from "../song/load";
 import { DIFFICULTY_LABELS, type Difficulty, type Song } from "../song/types";
 import type { Settings } from "../storage";
+import { PORTRAIT_TOUCH_QUERY, TOUCH_QUERY } from "./landscape";
 
 interface Props {
   readonly songId: string;
@@ -74,7 +75,7 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
     if (!g) return;
     let raf = 0;
     let finished = false;
-    const touchOnly = window.matchMedia?.("(hover: none) and (pointer: coarse)").matches ?? false;
+    const touchOnly = window.matchMedia?.(TOUCH_QUERY).matches ?? false;
     const loop = () => {
       raf = requestAnimationFrame(loop);
       const now = performance.now();
@@ -161,6 +162,11 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
     const onVisibility = () => {
       if (document.hidden) pause();
     };
+    // 縦に持ち直すと横向きの案内でレーンが隠れるので、止めておく
+    const portrait = window.matchMedia?.(PORTRAIT_TOUCH_QUERY);
+    const onOrientation = () => {
+      if (portrait?.matches) pause();
+    };
 
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
@@ -169,6 +175,7 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
     window.addEventListener("pointercancel", onPointerUp);
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("blur", pause);
+    portrait?.addEventListener("change", onOrientation);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
@@ -177,6 +184,7 @@ export function Play({ songId, difficulty, settings, onFinish, onRetry, onQuit }
       window.removeEventListener("pointercancel", onPointerUp);
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("blur", pause);
+      portrait?.removeEventListener("change", onOrientation);
     };
   }, [engine, pause, resume]);
 

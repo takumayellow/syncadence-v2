@@ -1,0 +1,44 @@
+/* ---------- 横向きの案内 ---------- */
+
+.rotate-hint {
+  display: none;
+}
+
+/* PORTRAIT_TOUCH_QUERY（src/ui/landscape.ts）と同じ条件 */
+@media (hover: none) and (pointer: coarse) and (orientation: portrait) {
+  .rotate-hint {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0 16px;
+    background: linear-gradient(150deg, var(--bg), var(--bg-2));
+    text-align: center;
+  }
+
+  .rotate-hint p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+}
+
+.rotate-hint-icon {
+  font-size: 3.5rem;
+  animation: rotate-hint 2s ease-in-out infinite;
+}
+
+@keyframes rotate-hint {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+}
